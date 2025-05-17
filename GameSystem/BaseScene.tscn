@@ -1,3 +1,28 @@
-[gd_scene format=3 uid="uid://ck880glpw7yhe"]
+[gd_scene load_steps=7 format=3 uid="uid://ck880glpw7yhe"]
+
+[ext_resource type="PackedScene" uid="uid://dj15tnwdfnu8c" path="res://GameSystem/TileMapManager/TileMapManager.tscn" id="1_enerm"]
+[ext_resource type="Script" uid="uid://ceagxmln0cgie" path="res://GameSystem/GameManager.gd" id="1_jcyoa"]
+[ext_resource type="PackedScene" uid="uid://cn83unxe8000m" path="res://GameSystem/Camera/Camera.tscn" id="3_6fmk2"]
+[ext_resource type="PackedScene" uid="uid://cutpwx2mpu0du" path="res://GameSystem/PlayerManager/PlayerManager.tscn" id="4_ksd4f"]
+[ext_resource type="PackedScene" uid="uid://chqcjqbrxrinr" path="res://GameSystem/EchoManager/EchoManager.tscn" id="5_6rw1a"]
+[ext_resource type="PackedScene" uid="uid://cm7vy88muwfjg" path="res://GameSystem/FogManager/FogManager.tscn" id="7_5v2no"]
 
 [node name="BaseScene" type="Node"]
+script = ExtResource("1_jcyoa")
+metadata/_custom_type_script = "uid://ceagxmln0cgie"
+
+[node name="TileMapManager" parent="." instance=ExtResource("1_enerm")]
+unique_name_in_owner = true
+
+[node name="PlayerManager" parent="." instance=ExtResource("4_ksd4f")]
+unique_name_in_owner = true
+
+[node name="FogManager" parent="." instance=ExtResource("7_5v2no")]
+unique_name_in_owner = true
+
+[node name="EchoManager" parent="." instance=ExtResource("5_6rw1a")]
+unique_name_in_owner = true
+
+[node name="Camera" parent="." instance=ExtResource("3_6fmk2")]
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]

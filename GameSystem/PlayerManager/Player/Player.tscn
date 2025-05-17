@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpit4h8gce3n0"]
+
+[ext_resource type="Script" uid="uid://dpe246l83sdtk" path="res://GameSystem/PlayerManager/Player/player.gd" id="1_trhjy"]
+[ext_resource type="Texture2D" uid="uid://bxrn17cqt4gte" path="res://GameSystem/PlayerManager/Player/Asset/echo_player_a.png" id="2_asllk"]
+[ext_resource type="Script" uid="uid://cdclvjd3y7jq0" path="res://GameSystem/PlayerManager/Player/body_line.gd" id="2_u5ohs"]
+[ext_resource type="PackedScene" uid="uid://bgi6wq0nwfoit" path="res://GameSystem/_shared/Weapon/DrillT1/DrillT1.tscn" id="4_u5ohs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_asllk"]
+radius = 6.0
+
+[sub_resource type="Curve" id="Curve_nd1tf"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+platform_on_leave = 2
+script = ExtResource("1_trhjy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_asllk")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="BodyLine" type="Line2D" parent="Node"]
+unique_name_in_owner = true
+points = PackedVector2Array(0, 0, 25, -5)
+width_curve = SubResource("Curve_nd1tf")
+default_color = Color(0.498039, 0.498039, 0.498039, 1)
+script = ExtResource("2_u5ohs")
+
+[node name="DrillT1" parent="Node" instance=ExtResource("4_u5ohs")]
+unique_name_in_owner = true
+
+[node name="EchoPlayerA" type="Sprite2D" parent="Node"]
+unique_name_in_owner = true
+texture = ExtResource("2_asllk")

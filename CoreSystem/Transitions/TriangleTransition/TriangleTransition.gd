@@ -24,7 +24,7 @@ func _out():
 	_visible = false
 
 var _visible = false
-const EDGE := 50.0
+const EDGE := 80.0
 var W := EDGE/2.0
 var H := _get_triangle_height(EDGE)
 var _triangle_arr = []
@@ -108,7 +108,7 @@ func _notification(what):
 		timer.start()
 
 func _get_viewport_size():
-	return Vector2(1152, 648)
+	return Vector2(1728, 972)
 	return get_viewport().size
 
 func _on_timeout():

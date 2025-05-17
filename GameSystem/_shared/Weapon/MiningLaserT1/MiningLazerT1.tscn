@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://xe87iljq1rfs"]
+
+[ext_resource type="Script" uid="uid://d13owx6tcn7o5" path="res://GameSystem/_shared/Weapon/MiningLaserT1/mining_lazer_t_1.gd" id="1_h71wi"]
+
+[sub_resource type="Gradient" id="Gradient_h71wi"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.194444, 0.822222)
+colors = PackedColorArray(0.1185, 0.633317, 0.79, 1, 0.141176, 0.796078, 1, 1, 0.1185, 0.633317, 0.79, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dalxy"]
+gradient = SubResource("Gradient_h71wi")
+fill_from = Vector2(1, 1)
+
+[node name="MiningLazerT1" type="Node2D"]
+script = ExtResource("1_h71wi")
+
+[node name="Line2D" type="Line2D" parent="."]
+unique_name_in_owner = true
+points = PackedVector2Array(0, 0, 22, 13)
+width = 2.5
+texture = SubResource("GradientTexture2D_dalxy")
+texture_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+unique_name_in_owner = true

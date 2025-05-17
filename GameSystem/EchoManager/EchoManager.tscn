@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://chqcjqbrxrinr"]
+
+[ext_resource type="Script" uid="uid://c24kruhif4g08" path="res://GameSystem/EchoManager/echo_manager.gd" id="1_5n4rv"]
+
+[node name="EchoManager" type="Node2D"]
+script = ExtResource("1_5n4rv")
