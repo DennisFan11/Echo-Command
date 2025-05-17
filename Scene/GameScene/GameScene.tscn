@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://coiq2crfbkgwe"]
+
+[ext_resource type="Script" uid="uid://cof1cmpv6rqvv" path="res://Scene/GameScene/game_scene.gd" id="1_6fhgl"]
+
+[node name="GameScenePlaceHolder" type="Node2D"]
+script = ExtResource("1_6fhgl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "Back To Menu"
+
+[connection signal="pressed" from="CanvasLayer/CenterContainer/Button" to="." method="_on_button_pressed"]

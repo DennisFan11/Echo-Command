@@ -1,0 +1,41 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="GodotTemplate2D"
+run/main_scene="uid://bg4ji6py6jgn8"
+config/features=PackedStringArray("4.4", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+ConfigRepo="*res://CoreSystem/ConfigRepo.gd"
+CoreManager="*res://CoreSystem/CoreManager.gd"
+MapDataRepo="*res://CoreSystem/MapDataRepo.gd"
+Logger="*res://CoreSystem/Service/Logger.gd"
+Fps="*res://CoreSystem/Service/FPS/FPS.tscn"
+SoundManager="*res://CoreSystem/SoundManager.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
+
+[file_customization]
+
+folder_colors={
+"res://CoreSystem/": "yellow",
+"res://GameSystem/": "orange",
+"res://Scene/": "purple"
+}
+
+[rendering]
+
+viewport/hdr_2d=true

@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnahtu175563b"]
+
+[ext_resource type="Script" uid="uid://dv57gqhe6y1wh" path="res://CoreSystem/Service/FPS/fps.gd" id="1_00uf1"]
+
+[node name="Fps" type="Node"]
+script = ExtResource("1_00uf1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "HI"
