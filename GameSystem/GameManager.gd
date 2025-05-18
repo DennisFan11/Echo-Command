@@ -15,6 +15,7 @@ func _game_start():
 
 
 @onready var _tilemap_manager: TileMapManager = %TileMapManager
+@onready var _item_manager: ItemManager = %ItemManager
 @onready var _player_manager: PlayerManager = %PlayerManager
 @onready var _fog_manager: FogManager = %FogManager
 @onready var _echo_manager: EchoManager = %EchoManager
@@ -26,6 +27,7 @@ func _ready() -> void:
 	for i:Node in get_children():
 		_injection(i, "_game_manager", self)
 		_injection(i, "_tilemap_manager")
+		_injection(i, "_item_manager")
 		_injection(i, "_player_manager")
 		_injection(i, "_fog_manager")
 		_injection(i, "_echo_manager")

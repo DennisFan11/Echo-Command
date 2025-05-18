@@ -94,6 +94,12 @@ left_click={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_10="buildingUI"
+2d_physics/layer_2="TileMap"
+2d_physics/layer_3="RIgidItem"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

@@ -31,3 +31,6 @@ script = ExtResource("2_vmodc")
 [node name="DamageLayer" type="TileMapLayer" parent="."]
 unique_name_in_owner = true
 tile_set = SubResource("TileSet_pw4gl")
+
+[node name="Particle" type="Node2D" parent="."]
+unique_name_in_owner = true

@@ -34,7 +34,7 @@ func _input(event: InputEvent) -> void:
 
 func _send_ping():
 	CoreManager.base_scene._echo_manager.\
-		create_ping(0, position, 200.0)
+		create_ping(0, position, 125.0, 30)
 
 
 

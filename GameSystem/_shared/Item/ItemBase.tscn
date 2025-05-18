@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://datytwv7r7rbl"]
+
+[ext_resource type="Script" uid="uid://bl7fxhc63cefu" path="res://GameSystem/_shared/Item/item_base.gd" id="1_uptnl"]
+[ext_resource type="Texture2D" uid="uid://cew5mh3tjl4ej" path="res://GameSystem/TileMapManager/Asset/echo_terrain.png" id="1_yrm8j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fm1n5"]
+atlas = ExtResource("1_yrm8j")
+region = Rect2(0, 64, 32, 16)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aty11"]
+radius = 7.0
+
+[node name="ItemBase" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 5
+gravity_scale = 0.0
+linear_damp = 15.0
+script = ExtResource("1_uptnl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = SubResource("AtlasTexture_fm1n5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_aty11")

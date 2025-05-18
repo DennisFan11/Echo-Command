@@ -1,0 +1,210 @@
+[gd_scene load_steps=15 format=3 uid="uid://3n23xxtrwle4"]
+
+[ext_resource type="Script" uid="uid://dgw3mbrua0xan" path="res://GameSystem/BuildingUI/building_ui.gd" id="1_rs12n"]
+[ext_resource type="Script" uid="uid://khvl61kd2fon" path="res://Class/TweenPanel.gd" id="1_sxn05"]
+[ext_resource type="FontFile" uid="uid://ccjd5bwkp56le" path="res://Asset/Fonts/Sour_Gummy/SDF_light.ttf" id="3_wtl6f"]
+[ext_resource type="PackedScene" uid="uid://b480vu718bgoo" path="res://GameSystem/BuildingUI/SelectableButton/SelectableButton.tscn" id="4_6efhn"]
+[ext_resource type="Texture2D" uid="uid://870b0hkn4vqx" path="res://Asset/echo_building.png" id="5_evg12"]
+
+[sub_resource type="Theme" id="Theme_evg12"]
+RichTextLabel/fonts/normal_font = ExtResource("3_wtl6f")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rs12n"]
+bg_color = Color(0.259294, 0.259294, 0.259294, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.178212, 0.178212, 0.178212, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r255k"]
+atlas = ExtResource("5_evg12")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evg12"]
+atlas = ExtResource("5_evg12")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ch6q8"]
+atlas = ExtResource("5_evg12")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyaap"]
+atlas = ExtResource("5_evg12")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48ra7"]
+atlas = ExtResource("5_evg12")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bd0j"]
+atlas = ExtResource("5_evg12")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_evg12"]
+bg_color = Color(0.258824, 0.258824, 0.258824, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_color = Color(0.176471, 0.176471, 0.176471, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+
+[node name="BuildingUi" type="Node2D"]
+script = ExtResource("1_rs12n")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_evg12")
+
+[node name="BuildingPanel" type="Panel" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1345.0
+offset_top = 411.0
+offset_right = -28.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rs12n")
+script = ExtResource("1_sxn05")
+metadata/_custom_type_script = "uid://khvl61kd2fon"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/BuildingPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer/Control/BuildingPanel/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_wtl6f")
+theme_override_font_sizes/font_size = 40
+current_tab = 0
+
+[node name="Building" type="MarginContainer" parent="CanvasLayer/Control/BuildingPanel/MarginContainer/TabContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+metadata/_tab_index = 0
+
+[node name="flow" type="FlowContainer" parent="CanvasLayer/Control/BuildingPanel/MarginContainer/TabContainer/Building"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+
+[node name="Node" parent="CanvasLayer/Control/BuildingPanel/MarginContainer/TabContainer/Building/flow" instance=ExtResource("4_6efhn")]
+layout_mode = 2
+Title = "Node"
+Content = "connect to the mother..."
+
+[node name="Drill" parent="CanvasLayer/Control/BuildingPanel/MarginContainer/TabContainer/Building/flow" instance=ExtResource("4_6efhn")]
+layout_mode = 2
+icon = SubResource("AtlasTexture_r255k")
+Title = "Drill"
+Content = "can mine ore..."
+
+[node name="Turret" parent="CanvasLayer/Control/BuildingPanel/MarginContainer/TabContainer/Building/flow" instance=ExtResource("4_6efhn")]
+layout_mode = 2
+icon = SubResource("AtlasTexture_evg12")
+Title = "turret"
+Content = "shoot the enemy"
+
+[node name="Radar" parent="CanvasLayer/Control/BuildingPanel/MarginContainer/TabContainer/Building/flow" instance=ExtResource("4_6efhn")]
+layout_mode = 2
+icon = SubResource("AtlasTexture_ch6q8")
+Title = "Radar"
+Content = "scan the enemy"
+
+[node name="TrackerRadar" parent="CanvasLayer/Control/BuildingPanel/MarginContainer/TabContainer/Building/flow" instance=ExtResource("4_6efhn")]
+layout_mode = 2
+icon = SubResource("AtlasTexture_oyaap")
+Title = "Tracker Radar"
+Content = "the radar that tracking enemy"
+
+[node name="Wall" type="MarginContainer" parent="CanvasLayer/Control/BuildingPanel/MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+metadata/_tab_index = 1
+
+[node name="Wall" type="FlowContainer" parent="CanvasLayer/Control/BuildingPanel/MarginContainer/TabContainer/Wall"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+
+[node name="IornWall" parent="CanvasLayer/Control/BuildingPanel/MarginContainer/TabContainer/Wall/Wall" instance=ExtResource("4_6efhn")]
+layout_mode = 2
+icon = SubResource("AtlasTexture_48ra7")
+Title = "Iorn Wall"
+Content = "Takes a hit."
+
+[node name="HardRockWall" parent="CanvasLayer/Control/BuildingPanel/MarginContainer/TabContainer/Wall/Wall" instance=ExtResource("4_6efhn")]
+layout_mode = 2
+icon = SubResource("AtlasTexture_2bd0j")
+Title = "Hard Rock Wall"
+Content = "Holds strong."
+
+[node name="InfoBox" type="VBoxContainer" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1345.0
+offset_top = -139.0
+offset_right = -28.0
+offset_bottom = -561.0
+alignment = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/InfoBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_evg12")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/InfoBox/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="InfoBox" type="VBoxContainer" parent="CanvasLayer/Control/InfoBox/PanelContainer/MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Title" type="RichTextLabel" parent="CanvasLayer/Control/InfoBox/PanelContainer/MarginContainer/InfoBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Node"
+fit_content = true
+
+[node name="Content" type="RichTextLabel" parent="CanvasLayer/Control/InfoBox/PanelContainer/MarginContainer/InfoBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 23
+bbcode_enabled = true
+text = "a node"
+fit_content = true

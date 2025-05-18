@@ -15,7 +15,7 @@ func _ready() -> void:
 		var next_angle: float = PI*2.0/size * (i+1)
 		
 		ping_wave.R = R
-		var _space = (next_angle-curr_angle)*0.1
+		var _space = (next_angle-curr_angle)*0.3
 		ping_wave.start_angle = curr_angle + _space
 		ping_wave.end_angle = next_angle - _space
 		ping_wave.speed = SPEED
