@@ -8,6 +8,7 @@ static var select_map = {}
 @export var group = "BuildingUI"
 @export var Title = "title"
 @export_multiline var Content = "Content"
+@export var building_name = ""
 
 static var _select_observer = []
 static var _unselect_observer = []
@@ -17,6 +18,10 @@ static func reg_select_obsetver(f: Callable):
 	_select_observer.append(f)
 static func reg_unselect_obsetver(f: Callable):
 	_unselect_observer.append(f)
+static func clear():
+	_select_observer.clear()
+	_unselect_observer.clear()
+
 
 func _emit_select():
 	for i: Callable in _select_observer:

@@ -114,8 +114,9 @@ theme_override_constants/v_separation = 10
 
 [node name="Node" parent="CanvasLayer/Control/BuildingPanel/MarginContainer/TabContainer/Building/flow" instance=ExtResource("4_6efhn")]
 layout_mode = 2
-Title = "Node"
+Title = "LinkNode"
 Content = "connect to the mother..."
+building_name = "LinkNode"
 
 [node name="Drill" parent="CanvasLayer/Control/BuildingPanel/MarginContainer/TabContainer/Building/flow" instance=ExtResource("4_6efhn")]
 layout_mode = 2

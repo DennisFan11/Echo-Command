@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://jiell1dw4hb7"]
+
+[ext_resource type="Script" uid="uid://8aebsb4grarx" path="res://GameSystem/_shared/ItemCollector/item_collector.gd" id="1_oygji"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8t2no"]
+radius = 30.0167
+
+[node name="ItemCollector" type="Node2D"]
+script = ExtResource("1_oygji")
+
+[node name="Area2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_8t2no")

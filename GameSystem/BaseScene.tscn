@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ck880glpw7yhe"]
+[gd_scene load_steps=10 format=3 uid="uid://ck880glpw7yhe"]
 
 [ext_resource type="PackedScene" uid="uid://dj15tnwdfnu8c" path="res://GameSystem/TileMapManager/TileMapManager.tscn" id="1_enerm"]
 [ext_resource type="Script" uid="uid://ceagxmln0cgie" path="res://GameSystem/GameManager.gd" id="1_jcyoa"]
@@ -8,12 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://cm7vy88muwfjg" path="res://GameSystem/FogManager/FogManager.tscn" id="7_5v2no"]
 [ext_resource type="PackedScene" uid="uid://3n23xxtrwle4" path="res://GameSystem/BuildingUI/BuildingUI.tscn" id="7_cmv0i"]
 [ext_resource type="PackedScene" uid="uid://hji2xvqpq70r" path="res://GameSystem/ItemManager/ItemManager.tscn" id="7_g4dfj"]
+[ext_resource type="PackedScene" uid="uid://cb52ktvlwhm50" path="res://GameSystem/BuildingManager/BuildingManager.tscn" id="9_cmv0i"]
 
 [node name="BaseScene" type="Node"]
 script = ExtResource("1_jcyoa")
 metadata/_custom_type_script = "uid://ceagxmln0cgie"
 
 [node name="TileMapManager" parent="." instance=ExtResource("1_enerm")]
+unique_name_in_owner = true
+
+[node name="BuildingManager" parent="." instance=ExtResource("9_cmv0i")]
 unique_name_in_owner = true
 
 [node name="ItemManager" parent="." instance=ExtResource("7_g4dfj")]

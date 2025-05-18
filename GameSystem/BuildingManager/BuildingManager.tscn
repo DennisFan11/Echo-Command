@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb52ktvlwhm50"]
+
+[ext_resource type="Script" uid="uid://c37ccsnb76d83" path="res://GameSystem/BuildingManager/building_manager.gd" id="1_cwflk"]
+[ext_resource type="TileSet" uid="uid://bf68eqgmlt4jo" path="res://GameSystem/BuildingManager/BuildingManager.tres" id="2_3j6id"]
+
+[node name="BuildingManager" type="Node2D"]
+script = ExtResource("1_cwflk")
+
+[node name="BuildingLayer" type="TileMapLayer" parent="."]
+unique_name_in_owner = true
+tile_set = ExtResource("2_3j6id")

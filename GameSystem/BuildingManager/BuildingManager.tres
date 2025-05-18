@@ -1,0 +1,10 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bf68eqgmlt4jo"]
+
+[ext_resource type="PackedScene" uid="uid://cm47drc2t0kuo" path="res://GameSystem/BuildingManager/Buildings/LinkNode/LinkNode.tscn" id="1_kqrxv"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_cwflk"]
+resource_name = "Buildings"
+scenes/1/scene = ExtResource("1_kqrxv")
+
+[resource]
+sources/0 = SubResource("TileSetScenesCollectionSource_cwflk")

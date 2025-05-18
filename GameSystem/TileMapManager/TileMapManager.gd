@@ -2,6 +2,19 @@ class_name TileMapManager
 extends IGameSubManager
 
 
+func is_block_available(global_position: Vector2)-> bool:
+	var map_pos: Vector2 = %WallLayer.local_to_map(
+		%WallLayer.to_local(global_position))
+	
+	return %WallLayer.get_cell_atlas_coords(map_pos)\
+		== Vector2i(-1, -1)
+	
+	 
+
+
+
+
+
 var _hp_map:Dictionary = {}
 
 func dmage_wall(global_position: Vector2, damage: float):
@@ -23,7 +36,6 @@ func dmage_wall(global_position: Vector2, damage: float):
 	if _hp_map[map_pos] < 0.0:
 		_hp_map.erase(map_pos)
 		_break_wall(map_pos)
-	
 
 func _init_hp(coords: Vector2i)-> float:
 	var tile_data = %WallLayer.get_cell_tile_data(coords)
@@ -70,8 +82,6 @@ func _explo_partical(coords: Vector2):
 	node.finished.connect(node.queue_free)
 	node.position = pos
 	%Particle.add_child(node)
-
-
 
 
 
