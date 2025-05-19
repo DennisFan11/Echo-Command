@@ -1,10 +1,14 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bf68eqgmlt4jo"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bf68eqgmlt4jo"]
 
 [ext_resource type="PackedScene" uid="uid://cm47drc2t0kuo" path="res://GameSystem/BuildingManager/Buildings/LinkNode/LinkNode.tscn" id="1_kqrxv"]
+[ext_resource type="PackedScene" uid="uid://colui6hmmre6c" path="res://GameSystem/BuildingManager/Buildings/Mother/Mother.tscn" id="2_3pqqf"]
+[ext_resource type="PackedScene" uid="uid://c06w6bt1h701q" path="res://GameSystem/BuildingManager/Buildings/EnemySpawner/EnemySpawner.tscn" id="3_ia8d8"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_cwflk"]
 resource_name = "Buildings"
 scenes/1/scene = ExtResource("1_kqrxv")
+scenes/2/scene = ExtResource("2_3pqqf")
+scenes/3/scene = ExtResource("3_ia8d8")
 
 [resource]
 sources/0 = SubResource("TileSetScenesCollectionSource_cwflk")

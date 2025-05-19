@@ -5,7 +5,7 @@ var team: int = 0
 
 var R: float = 200.0
 var size: int
-
+var mask: int = 7
 const SPEED = 200.0
 
 func _ready() -> void:
@@ -19,7 +19,7 @@ func _ready() -> void:
 		ping_wave.start_angle = curr_angle + _space
 		ping_wave.end_angle = next_angle - _space
 		ping_wave.speed = SPEED
-		
+		ping_wave.mask = mask
 		add_child(ping_wave)
 	
 	

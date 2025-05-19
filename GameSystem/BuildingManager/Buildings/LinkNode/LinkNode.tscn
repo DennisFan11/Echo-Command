@@ -1,26 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://cm47drc2t0kuo"]
+[gd_scene load_steps=7 format=3 uid="uid://cm47drc2t0kuo"]
 
 [ext_resource type="Script" uid="uid://rloeuyb0wwcb" path="res://GameSystem/BuildingManager/Buildings/LinkNode/link_node.gd" id="1_63hma"]
 [ext_resource type="Texture2D" uid="uid://870b0hkn4vqx" path="res://Asset/echo_building.png" id="2_d4nqe"]
-[ext_resource type="Script" uid="uid://txoweb6as2k5" path="res://GameSystem/BuildingManager/Buildings/LinkNode/static_body_2d.gd" id="3_fhye2"]
+[ext_resource type="Script" uid="uid://biay4ig8d0j6q" path="res://GameSystem/_shared/PackedItem/PackedItem.gd" id="2_yhchy"]
+[ext_resource type="PackedScene" uid="uid://boaudp0f7m81q" path="res://GameSystem/BuildingManager/Buildings/BuildingBase/BuildingBase.tscn" id="5_jgfug"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fhye2"]
+[sub_resource type="Resource" id="Resource_jgfug"]
+script = ExtResource("2_yhchy")
+Rock = 0
+Iorn = 1
+HardRock = 0
+ManaStone = 0
+metadata/_custom_type_script = "uid://biay4ig8d0j6q"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhchy"]
 atlas = ExtResource("2_d4nqe")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_d4nqe"]
-radius = 5.0
-
 [node name="LinkNode" type="Node2D"]
 script = ExtResource("1_63hma")
+require_item = SubResource("Resource_jgfug")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_fhye2")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("3_fhye2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("CircleShape2D_d4nqe")
+[node name="BuildingBase" parent="." instance=ExtResource("5_jgfug")]
+texture = SubResource("AtlasTexture_yhchy")
+text = "ally LinkNode:
+	state: connected"

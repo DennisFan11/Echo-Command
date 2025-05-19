@@ -10,6 +10,9 @@ var SCENE := {
 	},
 	"Setting":{
 		"file":preload("uid://cudua585eb442")
+	},
+	"Endding":{
+		"file":preload("uid://cv2bm6xikqx7q")
 	}
 }
 
@@ -68,8 +71,12 @@ func _call_transition(trans: String, type: bool)-> Signal:
 		node._out()
 		return node.out_end
 
-
-
+## GAME MANAGER
+func goto_end(win:bool, message:String):
+	
+	await goto_scene("Endding")
+	if get_tree().current_scene.has_method("goto_end"):
+		get_tree().current_scene.goto_end(win, message)
 
 
 

@@ -3,7 +3,8 @@ var R: float
 var start_angle: float
 var end_angle: float
 
-
+var mask:int = 7
+		
 var speed: float = 10.0
 
 
@@ -30,6 +31,8 @@ func _process(delta: float) -> void:
 
 
 func _ready() -> void:
+	%Area2D.collision_mask = mask
+	%Area2D.collision_layer = mask
 	_update_area()
 
 func _physics_process(_delta: float) -> void:

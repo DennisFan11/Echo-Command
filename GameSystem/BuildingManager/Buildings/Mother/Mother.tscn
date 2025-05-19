@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://colui6hmmre6c"]
+
+[ext_resource type="Script" uid="uid://cjbhqp3lrkf1i" path="res://GameSystem/BuildingManager/Buildings/Mother/mother.gd" id="1_c4n8r"]
+[ext_resource type="PackedScene" uid="uid://boaudp0f7m81q" path="res://GameSystem/BuildingManager/Buildings/BuildingBase/BuildingBase.tscn" id="2_c4n8r"]
+[ext_resource type="Texture2D" uid="uid://870b0hkn4vqx" path="res://Asset/echo_building.png" id="3_t3m7p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkem6"]
+atlas = ExtResource("3_t3m7p")
+region = Rect2(16, 64, 48, 48)
+
+[node name="Mother" type="Node2D"]
+script = ExtResource("1_c4n8r")
+_hp = 300.0
+metadata/_custom_type_script = "uid://dtdnnc0vu4u25"
+
+[node name="BuildingBase" parent="." instance=ExtResource("2_c4n8r")]
+texture = SubResource("AtlasTexture_kkem6")
+R = 21.45
+text = "Mother . . . . ."

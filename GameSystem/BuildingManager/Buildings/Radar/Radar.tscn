@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://bhrvhj2eswrei"]
+
+[ext_resource type="Script" uid="uid://c61btkpngwo0v" path="res://GameSystem/BuildingManager/Buildings/Radar/radar.gd" id="1_do2jx"]
+[ext_resource type="Script" uid="uid://biay4ig8d0j6q" path="res://GameSystem/_shared/PackedItem/PackedItem.gd" id="2_i41ew"]
+[ext_resource type="PackedScene" uid="uid://boaudp0f7m81q" path="res://GameSystem/BuildingManager/Buildings/BuildingBase/BuildingBase.tscn" id="2_mpjy0"]
+[ext_resource type="Texture2D" uid="uid://870b0hkn4vqx" path="res://Asset/echo_building.png" id="3_do2jx"]
+
+[sub_resource type="Resource" id="Resource_i41ew"]
+script = ExtResource("2_i41ew")
+Rock = 0
+Iorn = 10
+HardRock = 0
+ManaStone = 0
+metadata/_custom_type_script = "uid://biay4ig8d0j6q"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i41ew"]
+atlas = ExtResource("3_do2jx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbona"]
+atlas = ExtResource("3_do2jx")
+region = Rect2(32, 32, 16, 16)
+
+[node name="Radar" type="Node2D"]
+script = ExtResource("1_do2jx")
+require_item = SubResource("Resource_i41ew")
+metadata/_custom_type_script = "uid://dtdnnc0vu4u25"
+
+[node name="BuildingBase" parent="." instance=ExtResource("2_mpjy0")]
+texture = SubResource("AtlasTexture_i41ew")
+text = "ally Radar"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = SubResource("AtlasTexture_lbona")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

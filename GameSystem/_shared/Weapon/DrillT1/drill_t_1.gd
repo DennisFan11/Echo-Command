@@ -73,9 +73,11 @@ func shoot()-> void:
 		DAMAGE * get_process_delta_time()
 	)
 	%GPUParticles2D.emitting = _is_touched_wall()
+	%Damager.enable = true
 
 func _stop_shoot():
 	%GPUParticles2D.emitting = false
+	%Damager.enable = false
 
 func _damage(global_pos, damage):
 	CoreManager.base_scene._tilemap_manager.dmage_wall(

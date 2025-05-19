@@ -97,8 +97,11 @@ left_click={
 [layer_names]
 
 2d_render/layer_10="buildingUI"
+2d_physics/layer_1="Player"
 2d_physics/layer_2="TileMap"
 2d_physics/layer_3="RIgidItem"
+2d_physics/layer_4="Building"
+2d_physics/layer_5="Enemy"
 
 [rendering]
 

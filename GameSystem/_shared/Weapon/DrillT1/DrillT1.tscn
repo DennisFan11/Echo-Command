@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bgi6wq0nwfoit"]
+[gd_scene load_steps=11 format=3 uid="uid://bgi6wq0nwfoit"]
 
 [ext_resource type="Script" uid="uid://b43jsl4hia6j0" path="res://GameSystem/_shared/Weapon/DrillT1/drill_t_1.gd" id="1_w7o80"]
 [ext_resource type="Texture2D" uid="uid://bywnymt5j2gvy" path="res://GameSystem/_shared/Weapon/DrillT1/Asset/echo_drill.png" id="2_d0iqd"]
+[ext_resource type="PackedScene" uid="uid://ci6ayiq2nag7m" path="res://GameSystem/_shared/Weapon/Damager/Damager.tscn" id="3_js2hq"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_d0iqd"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_js2hq"]
 radius = 4.0
+height = 14.0
 
 [sub_resource type="Curve" id="Curve_d0iqd"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.503212, 0.3823), 0.0, 0.0, 0, 0]
@@ -48,36 +50,47 @@ collision_mask = 2
 motion_mode = 1
 
 [node name="EchoDrill" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(7, 0)
+position = Vector2(10, 0)
 texture = ExtResource("2_d0iqd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(4, 0)
-shape = SubResource("CircleShape2D_d0iqd")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_js2hq")
 
 [node name="Marker2D" type="Marker2D" parent="CharacterBody2D"]
 unique_name_in_owner = true
-position = Vector2(13, 0)
+position = Vector2(16, 0)
 
 [node name="Marker2D2" type="Marker2D" parent="CharacterBody2D"]
 unique_name_in_owner = true
-position = Vector2(11, 0)
+position = Vector2(14, 0)
 
 [node name="Marker2D3" type="Marker2D" parent="CharacterBody2D"]
 unique_name_in_owner = true
-position = Vector2(9, 0)
+position = Vector2(12, 0)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="CharacterBody2D"]
 unique_name_in_owner = true
-position = Vector2(14, 0)
+position = Vector2(17, 0)
 emitting = false
 amount = 40
 process_material = SubResource("ParticleProcessMaterial_d0iqd")
 
 [node name="Area2D" type="Area2D" parent="CharacterBody2D"]
 unique_name_in_owner = true
+visible = false
+position = Vector2(3, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
 position = Vector2(11, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_d0iqd")
+
+[node name="Damager" parent="CharacterBody2D" instance=ExtResource("3_js2hq")]
+unique_name_in_owner = true
+position = Vector2(14, 0)
+R = 3.74
+dmg = 50.0
+team = 0
+enable = false

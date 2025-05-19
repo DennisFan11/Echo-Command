@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bha2lfxlupo6b"]
+
+[ext_resource type="Script" uid="uid://fmkf8ow6b1d2" path="res://GameSystem/_shared/Pathfinder/pathfinder.gd" id="1_bhd15"]
+
+[node name="Pathfinder" type="Node2D"]
+script = ExtResource("1_bhd15")

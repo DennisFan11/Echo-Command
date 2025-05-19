@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpit4h8gce3n0"]
+[gd_scene load_steps=9 format=3 uid="uid://cpit4h8gce3n0"]
 
 [ext_resource type="Script" uid="uid://dpe246l83sdtk" path="res://GameSystem/PlayerManager/Player/player.gd" id="1_trhjy"]
 [ext_resource type="Texture2D" uid="uid://bxrn17cqt4gte" path="res://GameSystem/PlayerManager/Player/Asset/echo_player_a.png" id="2_asllk"]
 [ext_resource type="Script" uid="uid://cdclvjd3y7jq0" path="res://GameSystem/PlayerManager/Player/body_line.gd" id="2_u5ohs"]
 [ext_resource type="PackedScene" uid="uid://bgi6wq0nwfoit" path="res://GameSystem/_shared/Weapon/DrillT1/DrillT1.tscn" id="4_u5ohs"]
 [ext_resource type="PackedScene" uid="uid://jiell1dw4hb7" path="res://GameSystem/_shared/ItemCollector/ItemCollector.tscn" id="5_nd1tf"]
+[ext_resource type="PackedScene" uid="uid://c6c6wbg0a7tnn" path="res://GameSystem/_shared/Builder/Builder.tscn" id="6_5p7qb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_asllk"]
 radius = 6.0
@@ -17,11 +18,14 @@ point_count = 2
 motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_trhjy")
+_hp = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_asllk")
 
 [node name="ItemCollector" parent="." instance=ExtResource("5_nd1tf")]
+
+[node name="Builder" parent="." instance=ExtResource("6_5p7qb")]
 
 [node name="Node" type="Node" parent="."]
 

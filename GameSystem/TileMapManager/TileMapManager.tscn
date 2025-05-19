@@ -34,3 +34,9 @@ tile_set = SubResource("TileSet_pw4gl")
 
 [node name="Particle" type="Node2D" parent="."]
 unique_name_in_owner = true
+
+[node name="PosLabel" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0

@@ -13,12 +13,18 @@ func _game_start():
 
 var _player: Player
 func _spawn_player():
+	await get_tree().process_frame
+	await get_tree().process_frame
+	if not Mother.mother:
+		#_spawn_player()
+		return
 	
 	## 殺死可能的舊玩家
 	if is_instance_valid(_player): 
 		_player.queue_free()
-	
 	_player = preload("uid://cpit4h8gce3n0").instantiate()
+	_player.global_position = Mother.mother.global_position
+	_player.dead.connect(_spawn_player)
 	add_child(_player)
 
 

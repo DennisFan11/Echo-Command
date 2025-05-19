@@ -1,5 +1,5 @@
 class_name Player
-extends CharacterBody2D
+extends Unit
 
 
 
@@ -34,9 +34,13 @@ func _input(event: InputEvent) -> void:
 
 func _send_ping():
 	CoreManager.base_scene._echo_manager.\
-		create_ping(0, position, 125.0, 30)
+		create_ping(0, position, 125.0, 30, 27)
 
 
+
+
+func _ready() -> void:
+	%DrillT1.position = global_position
 
 
 ## WEAPON AREA
@@ -48,8 +52,11 @@ func _process(delta: float) -> void:
 		(get_global_mouse_position()-global_position).angle()
 	if Input.is_action_pressed("left_click"):
 		%DrillT1.shoot()
+		
 
 
+func _dead():
+	queue_free()
 
 
 #

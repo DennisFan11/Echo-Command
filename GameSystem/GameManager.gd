@@ -15,6 +15,7 @@ func _game_start():
 
 
 @onready var _tilemap_manager: TileMapManager = %TileMapManager
+@onready var _enemy_manager: EnemyManager = %EnemyManager
 @onready var _building_manager: BuildingManager = %BuildingManager
 @onready var _item_manager: ItemManager = %ItemManager
 @onready var _player_manager: PlayerManager = %PlayerManager
@@ -27,6 +28,7 @@ func _ready() -> void:
 	
 	for i:Node in get_children():
 		_injection(i, "_game_manager", self)
+		_injection(i, "_enemy_manager")
 		_injection(i, "_tilemap_manager")
 		_injection(i, "_building_manager")
 		_injection(i, "_item_manager")
@@ -54,5 +56,11 @@ func _start_game():
 	Logger.printLog("[GAME MANAGER] start")
 
 
-func _on_child_entered_tree(node: Node) -> void:
-	print(node)
+#func _on_child_entered_tree(node: Node) -> void:
+	#print(node)
+
+
+
+func game_over(win:bool, message: String):
+	print_rich(message)
+	CoreManager.goto_end(win, message)

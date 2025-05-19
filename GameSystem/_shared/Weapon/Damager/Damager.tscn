@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci6ayiq2nag7m"]
+
+[ext_resource type="Script" uid="uid://dlh7kfutmaqck" path="res://GameSystem/_shared/Weapon/Damager/damager.gd" id="1_1gfxs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a4jsi"]
+resource_local_to_scene = true
+
+[node name="Damager" type="Node2D"]
+script = ExtResource("1_1gfxs")
+enable = null
+
+[node name="Area2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 25
+collision_mask = 25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_a4jsi")
+debug_color = Color(0.995397, 0, 0.205953, 0.42)

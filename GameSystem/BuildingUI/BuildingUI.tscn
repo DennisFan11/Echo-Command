@@ -113,12 +113,14 @@ theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 
 [node name="Node" parent="CanvasLayer/Control/BuildingPanel/MarginContainer/TabContainer/Building/flow" instance=ExtResource("4_6efhn")]
+visible = false
 layout_mode = 2
 Title = "LinkNode"
 Content = "connect to the mother..."
 building_name = "LinkNode"
 
 [node name="Drill" parent="CanvasLayer/Control/BuildingPanel/MarginContainer/TabContainer/Building/flow" instance=ExtResource("4_6efhn")]
+visible = false
 layout_mode = 2
 icon = SubResource("AtlasTexture_r255k")
 Title = "Drill"
@@ -129,14 +131,17 @@ layout_mode = 2
 icon = SubResource("AtlasTexture_evg12")
 Title = "turret"
 Content = "shoot the enemy"
+building_name = "Turret"
 
 [node name="Radar" parent="CanvasLayer/Control/BuildingPanel/MarginContainer/TabContainer/Building/flow" instance=ExtResource("4_6efhn")]
 layout_mode = 2
 icon = SubResource("AtlasTexture_ch6q8")
 Title = "Radar"
 Content = "scan the enemy"
+building_name = "Radar"
 
 [node name="TrackerRadar" parent="CanvasLayer/Control/BuildingPanel/MarginContainer/TabContainer/Building/flow" instance=ExtResource("4_6efhn")]
+visible = false
 layout_mode = 2
 icon = SubResource("AtlasTexture_oyaap")
 Title = "Tracker Radar"
@@ -161,12 +166,14 @@ layout_mode = 2
 icon = SubResource("AtlasTexture_48ra7")
 Title = "Iorn Wall"
 Content = "Takes a hit."
+building_name = "IornWall"
 
 [node name="HardRockWall" parent="CanvasLayer/Control/BuildingPanel/MarginContainer/TabContainer/Wall/Wall" instance=ExtResource("4_6efhn")]
 layout_mode = 2
 icon = SubResource("AtlasTexture_2bd0j")
 Title = "Hard Rock Wall"
 Content = "Holds strong."
+building_name = "HardrockWall"
 
 [node name="InfoBox" type="VBoxContainer" parent="CanvasLayer/Control"]
 unique_name_in_owner = true

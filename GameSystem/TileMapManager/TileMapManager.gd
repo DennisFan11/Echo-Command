@@ -44,7 +44,7 @@ func _init_hp(coords: Vector2i)-> float:
 	return tile_data.get_custom_data("hp") # 可讀
 
 func _break_wall(coords: Vector2i):
-	print("Break", coords)
+	#print("Break", coords)
 	_spawn_item(coords)
 	%DamageLayer.set_cell(coords, 0, Vector2.ONE * -1)
 	%WallLayer.set_cell(coords, 0, Vector2.ONE * -1)
@@ -92,4 +92,11 @@ func _explo_partical(coords: Vector2):
 
 
 
+
+
+func set_source(global_pos: Vector2):
+	%WallLayer.set_source(global_pos)
+
+func samp_vec(global_pos: Vector2)-> Vector2:
+	return %WallLayer.samp_vec(global_pos)
 #

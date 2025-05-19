@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://bke5kvl6yq525"]
+
+[ext_resource type="Script" uid="uid://boxc6xm85rw4t" path="res://GameSystem/BuildingManager/Buildings/IornWall/iorn_wall.gd" id="1_sdu8n"]
+[ext_resource type="PackedScene" uid="uid://boaudp0f7m81q" path="res://GameSystem/BuildingManager/Buildings/BuildingBase/BuildingBase.tscn" id="2_m2dr3"]
+[ext_resource type="Script" uid="uid://biay4ig8d0j6q" path="res://GameSystem/_shared/PackedItem/PackedItem.gd" id="2_nmex8"]
+[ext_resource type="Texture2D" uid="uid://870b0hkn4vqx" path="res://Asset/echo_building.png" id="3_sdu8n"]
+
+[sub_resource type="Resource" id="Resource_tii00"]
+script = ExtResource("2_nmex8")
+Rock = 0
+Iorn = 3
+HardRock = 0
+ManaStone = 0
+metadata/_custom_type_script = "uid://biay4ig8d0j6q"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmex8"]
+atlas = ExtResource("3_sdu8n")
+region = Rect2(0, 32, 16, 16)
+
+[node name="IornWall" type="Node2D"]
+script = ExtResource("1_sdu8n")
+require_item = SubResource("Resource_tii00")
+metadata/_custom_type_script = "uid://dtdnnc0vu4u25"
+
+[node name="BuildingBase" parent="." instance=ExtResource("2_m2dr3")]
+texture = SubResource("AtlasTexture_nmex8")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ck880glpw7yhe"]
+[gd_scene load_steps=11 format=3 uid="uid://ck880glpw7yhe"]
 
 [ext_resource type="PackedScene" uid="uid://dj15tnwdfnu8c" path="res://GameSystem/TileMapManager/TileMapManager.tscn" id="1_enerm"]
 [ext_resource type="Script" uid="uid://ceagxmln0cgie" path="res://GameSystem/GameManager.gd" id="1_jcyoa"]
 [ext_resource type="PackedScene" uid="uid://cn83unxe8000m" path="res://GameSystem/Camera/Camera.tscn" id="3_6fmk2"]
+[ext_resource type="PackedScene" uid="uid://bntaijuq00vj3" path="res://GameSystem/EnemyManager/EnemyManager.tscn" id="3_8t1sf"]
 [ext_resource type="PackedScene" uid="uid://cutpwx2mpu0du" path="res://GameSystem/PlayerManager/PlayerManager.tscn" id="4_ksd4f"]
 [ext_resource type="PackedScene" uid="uid://chqcjqbrxrinr" path="res://GameSystem/EchoManager/EchoManager.tscn" id="5_6rw1a"]
 [ext_resource type="PackedScene" uid="uid://cm7vy88muwfjg" path="res://GameSystem/FogManager/FogManager.tscn" id="7_5v2no"]
@@ -10,24 +11,27 @@
 [ext_resource type="PackedScene" uid="uid://hji2xvqpq70r" path="res://GameSystem/ItemManager/ItemManager.tscn" id="7_g4dfj"]
 [ext_resource type="PackedScene" uid="uid://cb52ktvlwhm50" path="res://GameSystem/BuildingManager/BuildingManager.tscn" id="9_cmv0i"]
 
-[node name="BaseScene" type="Node"]
+[node name="BaseScene" type="Node2D"]
 script = ExtResource("1_jcyoa")
-metadata/_custom_type_script = "uid://ceagxmln0cgie"
 
 [node name="TileMapManager" parent="." instance=ExtResource("1_enerm")]
+unique_name_in_owner = true
+
+[node name="EnemyManager" parent="." instance=ExtResource("3_8t1sf")]
 unique_name_in_owner = true
 
 [node name="BuildingManager" parent="." instance=ExtResource("9_cmv0i")]
 unique_name_in_owner = true
 
-[node name="ItemManager" parent="." instance=ExtResource("7_g4dfj")]
+[node name="PlayerManager" parent="." instance=ExtResource("4_ksd4f")]
 unique_name_in_owner = true
 
-[node name="PlayerManager" parent="." instance=ExtResource("4_ksd4f")]
+[node name="ItemManager" parent="." instance=ExtResource("7_g4dfj")]
 unique_name_in_owner = true
 
 [node name="FogManager" parent="." instance=ExtResource("7_5v2no")]
 unique_name_in_owner = true
+visible = false
 
 [node name="EchoManager" parent="." instance=ExtResource("5_6rw1a")]
 unique_name_in_owner = true

@@ -6,6 +6,9 @@
 [node name="BuildingManager" type="Node2D"]
 script = ExtResource("1_cwflk")
 
-[node name="BuildingLayer" type="TileMapLayer" parent="."]
+[node name="PlayerBuildingLayer" type="TileMapLayer" parent="."]
 unique_name_in_owner = true
 tile_set = ExtResource("2_3j6id")
+
+[node name="EnemyBuildingLayer" type="TileMapLayer" parent="."]
+unique_name_in_owner = true
