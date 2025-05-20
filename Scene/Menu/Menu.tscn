@@ -1,12 +1,58 @@
-[gd_scene load_steps=3 format=3 uid="uid://bg4ji6py6jgn8"]
+[gd_scene load_steps=7 format=3 uid="uid://bg4ji6py6jgn8"]
 
 [ext_resource type="Script" uid="uid://b2k1ue4nboo5g" path="res://Scene/Menu/menu.gd" id="1_c18ru"]
+[ext_resource type="Script" uid="uid://cjwm3cw546yxh" path="res://Scene/Menu/menu_turret.gd" id="2_5j1yv"]
 [ext_resource type="PackedScene" uid="uid://cudua585eb442" path="res://Scene/_shared/Setting/Setting.tscn" id="2_mw8f1"]
+[ext_resource type="Texture2D" uid="uid://870b0hkn4vqx" path="res://Asset/echo_building.png" id="2_plaiv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j1yv"]
+atlas = ExtResource("2_plaiv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plaiv"]
+atlas = ExtResource("2_plaiv")
+region = Rect2(32, 0, 16, 32)
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_c18ru")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.178212, 0.178212, 0.178212, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 150.0
+offset_right = 850.0
+offset_bottom = 373.0
+rotation = -0.165328
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "Echo Command: Hive Overmind"
+
+[node name="MenuTurret" type="Node2D" parent="CanvasLayer/ColorRect"]
+position = Vector2(1524, 206)
+rotation = -2.20598
+scale = Vector2(18, 18)
+script = ExtResource("2_5j1yv")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ColorRect/MenuTurret"]
+texture = SubResource("AtlasTexture_5j1yv")
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer/ColorRect/MenuTurret"]
+unique_name_in_owner = true
+scale = Vector2(0.76, 0.76)
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/ColorRect/MenuTurret/Node2D"]
+position = Vector2(4, -10)
+texture = SubResource("AtlasTexture_plaiv")
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
 anchors_preset = 15
