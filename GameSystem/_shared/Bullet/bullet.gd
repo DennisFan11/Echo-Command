@@ -21,3 +21,7 @@ func _try_hit():
 				building.dmage(dmg) 
 				return true
 	return false
+
+
+func _on_timer_timeout() -> void:
+	queue_free()
