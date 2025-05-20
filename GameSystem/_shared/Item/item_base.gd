@@ -7,7 +7,7 @@ func set_item_id(_id: int):
 	id = _id
 	var texture: AtlasTexture = \
 		%Sprite2D.texture
-	texture.region.position.y = 64 + (_id-1)*16
+	texture.region.position.y = 64 + (_id)*16
 
 func  _ready() -> void:
 	const SCALE = Vector2.ONE * 0.4

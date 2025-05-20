@@ -8,8 +8,8 @@
 [sub_resource type="Resource" id="Resource_0xdp8"]
 script = ExtResource("2_rdpft")
 Rock = 0
-Iorn = 6
-HardRock = 3
+Iorn = 3
+HardRock = 1
 ManaStone = 0
 metadata/_custom_type_script = "uid://biay4ig8d0j6q"
 
@@ -20,8 +20,10 @@ region = Rect2(0, 48, 16, 16)
 [node name="HardrockWall" type="Node2D"]
 script = ExtResource("1_qbcji")
 require_item = SubResource("Resource_0xdp8")
+_hp = 600.0
 metadata/_custom_type_script = "uid://dtdnnc0vu4u25"
 
 [node name="BuildingBase" parent="." instance=ExtResource("2_7p3x3")]
 texture = SubResource("AtlasTexture_rdpft")
 text = "ally Hardrock Wall"
+mask = 13

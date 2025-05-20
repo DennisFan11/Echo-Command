@@ -1,5 +1,7 @@
+class_name EnemySpawner
 extends Building
 
+static var count = 0
 
 const MAX_SIZE = 5
 var _child_list = []
@@ -18,7 +20,11 @@ func _on_timer_timeout() -> void:
 			._enemy_manager\
 			.create(position)
 	)
-	
+
+func _ready() -> void:
+	count += 1
+func _exit_tree() -> void:
+	count -= 1
 
 
 

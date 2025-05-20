@@ -11,3 +11,12 @@ extends Node2D
 		%CollisionShape2D.shape.radius = new
 
 @export_multiline var text: String
+
+
+
+@export var mask: int = 8
+	
+func _ready() -> void:
+	%StaticBody2D.collision_mask = mask
+	%StaticBody2D.collision_layer = mask
+#@export var team = 0

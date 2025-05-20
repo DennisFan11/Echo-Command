@@ -37,7 +37,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 80
 bbcode_enabled = true
-text = "Bello"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -34,6 +34,8 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	if not is_instance_valid(_curr_building):
+		_new_building()
 	_curr_building.position = \
 		_building_manager.snap2grid(get_global_mouse_position())
 

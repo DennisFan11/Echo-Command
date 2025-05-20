@@ -15,19 +15,21 @@ var state: int = WORKING:
 		match state: 
 			ICON: 
 				top_level = true
+				
 			BUILDING:
 				top_level = false
 				if not _is_block_available():
 					queue_free()
 					return
-				modulate = _color_map[FINISHED]
+				building_progress = 0.0
 				_building_manager.add_building(self)
 			WORKING:
-				pass
+				modulate = _color_map[FINISHED]
 
 var building_progress: float = 0.0:
 	set(new):
-		print(new)
+		#print(new)
+		modulate = Color(0.5, 0.5, new*0.01)
 		building_progress = new
 		#%ProgressBar.value = new
 
@@ -52,6 +54,7 @@ var _building_manager: BuildingManager
 func _process(delta: float) -> void:
 	match state:
 		ICON:
+			_icon()
 			if _is_block_available():
 				modulate = _color_map[AVAILABLE]
 			else:
@@ -67,6 +70,8 @@ func _is_block_available():
 		and _game_manager._building_manager.is_block_available(position)
 
 
+func _icon():
+	pass
 
 
 

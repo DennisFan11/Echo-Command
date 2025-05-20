@@ -8,6 +8,7 @@ func open():
 func close():
 	await %Panel._close()
 	visible = false
+	ConfigRepo.save()
 
 
 func _on_exit_button_pressed() -> void:

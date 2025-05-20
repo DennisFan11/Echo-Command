@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://ywdm3x0hkc8e"]
+
+[ext_resource type="Script" uid="uid://b1sq4ch2vil5p" path="res://GameSystem/_shared/Bullet/bullet.gd" id="1_sm1e0"]
+
+[sub_resource type="Shader" id="Shader_u3xmy"]
+code = "shader_type canvas_item;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+uniform vec4 color:source_color = vec4(1.0);
+void fragment() {
+	COLOR.rgb = color.rgb;
+	COLOR.a =  smoothstep(
+		clamp(length(UV-vec2(0.5, 0.5)), 0.0, 0.5)
+		, 0.5, 0.47);
+	// Called for every pixel the material is visible on.
+}
+
+
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sm1e0"]
+shader = SubResource("Shader_u3xmy")
+shader_parameter/color = Color(9.33737e-06, 0.872973, 0.723351, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u3xmy"]
+radius = 1.0
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource("1_sm1e0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_sm1e0")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 2.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Area2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_u3xmy")

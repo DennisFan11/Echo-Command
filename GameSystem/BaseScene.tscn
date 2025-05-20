@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ck880glpw7yhe"]
+[gd_scene load_steps=12 format=3 uid="uid://ck880glpw7yhe"]
 
 [ext_resource type="PackedScene" uid="uid://dj15tnwdfnu8c" path="res://GameSystem/TileMapManager/TileMapManager.tscn" id="1_enerm"]
 [ext_resource type="Script" uid="uid://ceagxmln0cgie" path="res://GameSystem/GameManager.gd" id="1_jcyoa"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://3n23xxtrwle4" path="res://GameSystem/BuildingUI/BuildingUI.tscn" id="7_cmv0i"]
 [ext_resource type="PackedScene" uid="uid://hji2xvqpq70r" path="res://GameSystem/ItemManager/ItemManager.tscn" id="7_g4dfj"]
 [ext_resource type="PackedScene" uid="uid://cb52ktvlwhm50" path="res://GameSystem/BuildingManager/BuildingManager.tscn" id="9_cmv0i"]
+[ext_resource type="PackedScene" uid="uid://qcvvobq02w7m" path="res://GameSystem/ParticleManager/ParticleManager.tscn" id="11_khy4d"]
 
 [node name="BaseScene" type="Node2D"]
 script = ExtResource("1_jcyoa")
@@ -32,6 +33,9 @@ unique_name_in_owner = true
 [node name="FogManager" parent="." instance=ExtResource("7_5v2no")]
 unique_name_in_owner = true
 visible = false
+
+[node name="ParticleManager" parent="." instance=ExtResource("11_khy4d")]
+unique_name_in_owner = true
 
 [node name="EchoManager" parent="." instance=ExtResource("5_6rw1a")]
 unique_name_in_owner = true

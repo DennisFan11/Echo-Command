@@ -16,7 +16,7 @@ func create_item(item_id: int, world_pos: Vector2):
 
 
 @export var _repo: PackedItem = PackedItem.new([
-	100, 100, 100, 100
+	0, 0, 0, 0
 ])
 
 ## 新增資源到庫存

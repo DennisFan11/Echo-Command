@@ -8,6 +8,8 @@ signal dead
 func dmage(dmg: float):
 	print(self, " take ", dmg, " dmg")
 	_hp -= dmg
+	CoreManager.base_scene._particle_manager\
+		.create("Blood", global_position)
 	if _hp < 0:
 		_dead()
 		is_dead = true

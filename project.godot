@@ -102,6 +102,8 @@ left_click={
 2d_physics/layer_3="RIgidItem"
 2d_physics/layer_4="Building"
 2d_physics/layer_5="Enemy"
+2d_physics/layer_20="PlayerBuilding"
+2d_physics/layer_21="EnemyBuilding"
 
 [rendering]
 

@@ -20,6 +20,7 @@ func _game_start():
 @onready var _item_manager: ItemManager = %ItemManager
 @onready var _player_manager: PlayerManager = %PlayerManager
 @onready var _fog_manager: FogManager = %FogManager
+@onready var _particle_manager: ParticleManager = %ParticleManager
 @onready var _echo_manager: EchoManager = %EchoManager
 
 func _ready() -> void:
@@ -34,6 +35,7 @@ func _ready() -> void:
 		_injection(i, "_item_manager")
 		_injection(i, "_player_manager")
 		_injection(i, "_fog_manager")
+		_injection(i, "_particle_manager")
 		_injection(i, "_echo_manager")
 	_start_game()
 
@@ -62,5 +64,14 @@ func _start_game():
 
 
 func game_over(win:bool, message: String):
-	print_rich(message)
-	CoreManager.goto_end(win, message)
+	if not _end:
+		
+		print_rich(message)
+		CoreManager.goto_end(win, message)
+		_end = true
+func _process(delta: float) -> void:
+	if not _end:
+		if EnemySpawner.count <=0:
+			_end = true
+			CoreManager.goto_end(true, "[color=yellow]U win !")
+var _end = false

@@ -26,3 +26,8 @@ func PingHandle(pos:Vector2):
 			PingText + "\n\thp: " + str(_hp),
 			"[color=red]"
 		)
+
+
+
+func is_pinged():
+	return _cd > 0

@@ -56,7 +56,7 @@ func _ready() -> void:
 	_stop_timer.autostart = true
 	add_child(_stop_timer)
 	
-const DAMAGE = 300.0 # 30.0
+const DAMAGE = 60.0 # 30.0
 func shoot()-> void:
 	_stop_timer.start(0.2)
 	

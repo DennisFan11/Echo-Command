@@ -50,29 +50,29 @@ collision_mask = 2
 motion_mode = 1
 
 [node name="EchoDrill" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(10, 0)
+position = Vector2(7, 0)
 texture = ExtResource("2_d0iqd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(4, 0)
+position = Vector2(1, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_js2hq")
 
 [node name="Marker2D" type="Marker2D" parent="CharacterBody2D"]
 unique_name_in_owner = true
-position = Vector2(16, 0)
+position = Vector2(13, 0)
 
 [node name="Marker2D2" type="Marker2D" parent="CharacterBody2D"]
 unique_name_in_owner = true
-position = Vector2(14, 0)
+position = Vector2(11, 0)
 
 [node name="Marker2D3" type="Marker2D" parent="CharacterBody2D"]
 unique_name_in_owner = true
-position = Vector2(12, 0)
+position = Vector2(9, 0)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="CharacterBody2D"]
 unique_name_in_owner = true
-position = Vector2(17, 0)
+position = Vector2(14, 0)
 emitting = false
 amount = 40
 process_material = SubResource("ParticleProcessMaterial_d0iqd")
@@ -89,8 +89,7 @@ shape = SubResource("CapsuleShape2D_d0iqd")
 
 [node name="Damager" parent="CharacterBody2D" instance=ExtResource("3_js2hq")]
 unique_name_in_owner = true
-position = Vector2(14, 0)
+position = Vector2(11, 0)
 R = 3.74
 dmg = 50.0
 team = 0
-enable = false

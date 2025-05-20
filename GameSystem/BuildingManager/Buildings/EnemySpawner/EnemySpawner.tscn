@@ -24,6 +24,8 @@ _hp = 10.0
 
 [node name="BuildingBase" parent="." instance=ExtResource("1_66jxl")]
 texture = SubResource("AtlasTexture_qscdm")
+text = "enemy spawner"
+mask = 1048584
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 20.0

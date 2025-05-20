@@ -9,7 +9,7 @@ extends Enemy
 @export var acceleration: float = 500.0
 @export var friction: float = 600.0
 
-@export var turn_speed: float = 10.0  # 轉向速度（數值越高轉得越快）
+@export var turn_speed: float = 3.0  # 轉向速度（數值越高轉得越快）
 
 func _physics_process(delta: float) -> void:
 	var input_vector = %Pathfinder.get_vec()

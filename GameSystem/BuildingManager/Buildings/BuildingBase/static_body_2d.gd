@@ -16,7 +16,7 @@ func PingHandle(pos:Vector2):
 		.create_echo(
 			pos, 
 			$"..".text,
-			"[color=green]"
+			"[color=green]" if ($"../..".team==0) else "[color=red]"
 		)
 
 
