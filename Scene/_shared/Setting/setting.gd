@@ -22,3 +22,18 @@ func _ready() -> void:
 		func(new): SoundManager.set_db(
 			SoundManager.BUS.BGM, new)
 	)
+	
+	
+	%EffectSlider.value = SoundManager.get_db(
+		SoundManager.BUS.EFFECT
+	)
+	%EffectSlider.value_changed.connect(
+		func(new): SoundManager.set_db(
+			SoundManager.BUS.EFFECT, new)
+	)
+	
+	
+
+
+func _on_menu_button_button_down() -> void:
+	CoreManager.goto_scene("Menu")

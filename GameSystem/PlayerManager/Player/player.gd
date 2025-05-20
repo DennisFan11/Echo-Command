@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 
 ## PING AREA
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_released("right_click"):
+	if event.is_action_released("space"):
 		_send_ping()
 
 func _send_ping():
@@ -52,11 +52,13 @@ func _process(delta: float) -> void:
 		(get_global_mouse_position()-global_position).angle()
 	if Input.is_action_pressed("left_click"):
 		%DrillT1.shoot()
-		
+	super(delta)
 
 
 func _dead():
 	queue_free()
 
+func _hurt():
+	SoundManager.play_sound("hurt", global_position)
 
 #

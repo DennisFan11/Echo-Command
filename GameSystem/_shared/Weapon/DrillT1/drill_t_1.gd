@@ -74,6 +74,7 @@ func shoot()-> void:
 	)
 	%GPUParticles2D.emitting = _is_touched_wall()
 	%Damager.enable = true
+	SoundManager.play_sound("mine", global_position)
 
 func _stop_shoot():
 	%GPUParticles2D.emitting = false

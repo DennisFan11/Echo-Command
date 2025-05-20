@@ -10,9 +10,14 @@ extends Node2D
 		R = new
 		%CollisionShape2D.shape.radius = new
 
-@export_multiline var text: String
+@export_multiline var text: String:
+	get:
+		#if not Engine.is_editor_hint():
+			#
+		return text
 
 
+signal ping
 @export_flags_2d_physics
 var mask: int = 8
 	

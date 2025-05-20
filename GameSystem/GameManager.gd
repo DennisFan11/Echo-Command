@@ -52,6 +52,7 @@ func _injection(target: Node, property: String, item=null):
 ## 流程圖
 ## _load -> _game_start -> _game_end
 func _start_game():
+	SoundManager.play_bgm_stack("game_normal")
 	await _load()
 	Logger.printLog("[GAME MANAGER] load")
 	await _game_start()

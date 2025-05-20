@@ -31,4 +31,5 @@ mask = 1048584
 wait_time = 20.0
 autostart = true
 
+[connection signal="ping" from="BuildingBase" to="." method="_on_building_base_ping"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

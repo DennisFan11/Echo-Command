@@ -5,12 +5,12 @@ enum {L_CLICK, L_CLICKING, L_FINISH, IDLE, R_CLICK, R_CLICKING, R_FINISH, }
 enum {LEFT, RIGHT}
 
 #--------------------------可覆寫區-------------------------
-func _L_click(): # exec-once
-	pass
-func _L_clicking():
-	pass
-func _L_finish(): #exec-once
-	pass
+#func _L_click(): # exec-once
+	#pass
+#func _L_clicking():
+	#pass
+#func _L_finish(): #exec-once
+	#pass
 
 func _Idle(): # 未按下
 	pass
@@ -28,14 +28,14 @@ func _R_finish(): #exec-once
 var _state = IDLE
 func _physics_process(delta: float) -> void:
 	match _state:
-		L_CLICK: # 左鍵按下 (建造開始)
-			_state = L_CLICKING
-			_L_click()
-		L_CLICKING: # 左鍵持續下壓 ()
-			_L_clicking()
-		L_FINISH: # 左鍵彈起 (建造完成)
-			_state = IDLE
-			_L_finish()
+		#L_CLICK: # 左鍵按下 (建造開始)
+			#_state = L_CLICKING
+			#_L_click()
+		#L_CLICKING: # 左鍵持續下壓 ()
+			#_L_clicking()
+		#L_FINISH: # 左鍵彈起 (建造完成)
+			#_state = IDLE
+			#_L_finish()
 			
 		IDLE: # 左鍵未按下 (默認狀態)
 			_Idle()

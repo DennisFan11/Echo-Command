@@ -64,6 +64,7 @@ var current_item: PackedItem = PackedItem.new():
 var _building_manager: BuildingManager
 
 func _process(delta: float) -> void:
+	sound_cd -= delta
 	match state:
 		ICON:
 			_icon()
@@ -113,7 +114,14 @@ func dmage(dmg: float):
 		is_dead = true
 		#dead.emit(self)
 		_dead()
-		
+	
+	if sound_cd > 0:
+		return
+	sound_cd = 1.0
+	SoundManager.play_sound("hurt", global_position)
+
+var sound_cd:float = 0
+
 
 var is_dead:bool = false
 func _dead():

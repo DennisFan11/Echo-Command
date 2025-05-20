@@ -18,6 +18,7 @@ func PingHandle(pos:Vector2):
 			$"..".text,
 			"[color=green]" if ($"../..".team==0) else "[color=red]"
 		)
+	$"..".ping.emit()
 
 
 

@@ -14,6 +14,7 @@ func create_echo(position: Vector2, message: String, tags: String):
 func create_ping(team: int, position: Vector2,
 		 R: float, size:int=15, mask:int=27
 	):
+	SoundManager.play_sound("echo", position)
 	var ping = preload("uid://xahv431f2x2t").instantiate()
 	ping.team = team
 	ping.position = position

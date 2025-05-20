@@ -45,18 +45,26 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 246.0
-offset_top = 346.0
-offset_right = -266.0
+offset_left = 252.0
+offset_top = 381.0
+offset_right = -260.0
+offset_bottom = -79.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "credit
-All: DennisFan
-"
+text = "[font_size=60]credit
+[/font_size]
+Code/Art: DennisFan
+
+bgm/sound:
+snakes-authentic-gun-sounds
+brackeys-platformer-bundle
+menu-sounds-archive
+bastle-kastle-drum-ambient-sample-pack
+CTR_shader:
+Lord0Sanz"
 horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="MenuButton" type="Button" parent="CanvasLayer/Control"]
 unique_name_in_owner = true
@@ -64,10 +72,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 758.0
-offset_top = 756.0
-offset_right = -759.0
-offset_bottom = -101.0
+offset_left = 45.0
+offset_top = 806.0
+offset_right = -1279.0
+offset_bottom = -51.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 60

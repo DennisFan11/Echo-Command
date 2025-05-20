@@ -80,7 +80,7 @@ var _particle_manager: ParticleManager
 func _explo_partical(coords: Vector2):
 	var pos = %WallLayer.map_to_local(coords)
 	_particle_manager.create("TileBreak", pos)
-	
+	SoundManager.play_sound("explo", pos)
 
 
 

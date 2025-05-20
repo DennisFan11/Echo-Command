@@ -23,6 +23,7 @@ func _physics_process(delta: float) -> void:
 func _absorb(item: Item):
 	CoreManager.base_scene._item_manager.add_item(item.id, 1)
 	item.absorb()
+	SoundManager.play_sound("coin", global_position)
 
 func _attract(item: Item):
 	var vec: Vector2 = (global_position - item.position) * FORCE_SCALE

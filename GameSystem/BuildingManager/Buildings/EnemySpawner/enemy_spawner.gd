@@ -35,3 +35,7 @@ func _exit_tree() -> void:
 
 
 #
+
+
+func _on_building_base_ping() -> void:
+	SoundManager.play_bgm_stack("game_fight2")

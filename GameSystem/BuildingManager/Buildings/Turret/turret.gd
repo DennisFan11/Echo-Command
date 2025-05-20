@@ -51,6 +51,7 @@ func _shoot():
 	bullet.dmg = 5
 	bullet.position = %Marker2D.global_position
 	%Node.add_child(bullet)
+	SoundManager.play_sound("shoot", %Marker2D.global_position)
 
 func _icon():
 	%Line2D.visible = true

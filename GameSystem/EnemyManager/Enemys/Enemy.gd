@@ -14,6 +14,7 @@ const CD = 0.5
 var _cd: float = 0.0
 func _process(delta: float) -> void:
 	_cd -= delta
+	super(delta)
 
 func PingHandle(pos:Vector2):
 	if _cd > 0 :
@@ -26,6 +27,7 @@ func PingHandle(pos:Vector2):
 			PingText + "\n\thp: " + str(_hp),
 			"[color=red]"
 		)
+	SoundManager.play_bgm_stack("game_fight")
 
 
 
