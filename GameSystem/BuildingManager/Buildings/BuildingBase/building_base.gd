@@ -13,8 +13,8 @@ extends Node2D
 @export_multiline var text: String
 
 
-
-@export var mask: int = 8
+@export_flags_2d_physics
+var mask: int = 8
 	
 func _ready() -> void:
 	%StaticBody2D.collision_mask = mask

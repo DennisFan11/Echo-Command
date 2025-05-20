@@ -28,8 +28,8 @@ func _physics_process(delta: float) -> void:
 
 
 ## PING AREA
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("right_click"):
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_released("right_click"):
 		_send_ping()
 
 func _send_ping():

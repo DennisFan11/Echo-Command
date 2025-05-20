@@ -18,6 +18,7 @@ var _attack_range : float = 200
 
 func _ready() -> void:
 	_build_icon()
+	super()
 
 func _icon():
 	%Line2D.visible = true

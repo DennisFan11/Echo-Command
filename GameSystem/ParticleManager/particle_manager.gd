@@ -4,7 +4,9 @@ extends IGameSubManager
 
 
 var _scene_map = {
-	"Blood": preload("uid://mf63u76gof4f")
+	"Blood": preload("uid://mf63u76gof4f"),
+	"TileBreak": preload("uid://bj0i6iuo2ea3l"),
+	"BuildingDamage": preload("uid://bc8v8wtajfxju")
 }
 
 

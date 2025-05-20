@@ -32,7 +32,6 @@ unique_name_in_owner = true
 
 [node name="FogManager" parent="." instance=ExtResource("7_5v2no")]
 unique_name_in_owner = true
-visible = false
 
 [node name="ParticleManager" parent="." instance=ExtResource("11_khy4d")]
 unique_name_in_owner = true

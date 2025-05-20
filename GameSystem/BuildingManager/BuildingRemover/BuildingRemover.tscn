@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://7wtpauqai5vj"]
+
+[ext_resource type="Script" uid="uid://c36cfoyi13q7k" path="res://GameSystem/BuildingManager/BuildingRemover/building_remover.gd" id="1_rc04x"]
+
+[node name="BuildingRemover" type="Node2D"]
+script = ExtResource("1_rc04x")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+unique_name_in_owner = true
+color = Color(1, 0.26, 0.26, 0.352941)
+
+[node name="Line2D" type="Line2D" parent="."]
+unique_name_in_owner = true
+closed = true
+width = 1.5
+default_color = Color(1, 0.26, 0.26, 0.862745)

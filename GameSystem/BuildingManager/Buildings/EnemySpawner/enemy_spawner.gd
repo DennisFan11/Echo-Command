@@ -23,6 +23,7 @@ func _on_timer_timeout() -> void:
 
 func _ready() -> void:
 	count += 1
+	super()
 func _exit_tree() -> void:
 	count -= 1
 

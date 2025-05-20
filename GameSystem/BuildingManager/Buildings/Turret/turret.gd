@@ -24,6 +24,7 @@ var _attack_range: float
 func _ready() -> void:
 	_attack_range = %CollisionShape2D.shape.radius
 	_build_icon()
+	super()
 	
 ## TODO
 func _get_close_target()-> Vector2:

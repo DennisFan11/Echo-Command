@@ -106,7 +106,11 @@ func _to_string() -> String:
 	return s + ""
 	
 
-
+func is_zero()-> bool:
+	for i: int in to_array():
+		if i != 0:
+			return false
+	return true
 
 
 

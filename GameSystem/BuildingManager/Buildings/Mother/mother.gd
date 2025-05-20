@@ -8,6 +8,7 @@ static var mother: Building
 func _ready() -> void:
 	#print("set mother")
 	mother = self
+	super()
 
 
 func _dead():

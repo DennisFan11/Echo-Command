@@ -1,6 +1,8 @@
 class_name Building
 extends Node2D
+
 var team: int = 0
+
 enum {NOT_AVAILABLE, AVAILABLE, FINISHED}
 var _color_map = {
 	NOT_AVAILABLE: Color(1.0, 0.0, 0.0, 0.5),
@@ -8,9 +10,9 @@ var _color_map = {
 	FINISHED: Color(1.0, 1.0, 1.0, 1.0),
 }
 
-enum {ICON, BUILDING, WORKING, DISCONNECTED}
+enum {ICON, BUILDING, WORKING, DISCONNECTED, REMOVE}
 var state: int = WORKING:
-	set(new):
+	set(new): ## 入口行為
 		state = new
 		match state: 
 			ICON: 
@@ -18,20 +20,26 @@ var state: int = WORKING:
 				
 			BUILDING:
 				top_level = false
+				_progress_bar.visible = true
 				if not _is_block_available():
 					queue_free()
 					return
 				building_progress = 0.0
 				_building_manager.add_building(self)
 			WORKING:
+				_progress_bar.visible = false
 				modulate = _color_map[FINISHED]
+			REMOVE:
+				_progress_bar.visible = true
+				current_item = current_item
+				modulate = _color_map[NOT_AVAILABLE]
+		
+				
 
 var building_progress: float = 0.0:
 	set(new):
-		#print(new)
-		modulate = Color(0.5, 0.5, new*0.01)
+		_progress_bar.progress = new*0.01
 		building_progress = new
-		#%ProgressBar.value = new
 
 @export var require_item: PackedItem
 
@@ -45,9 +53,13 @@ var current_item: PackedItem = PackedItem.new():
 		building_progress = progress
 		
 		## FINISH
-		if require_item.sub(current_item)\
-			.get_item_count() == 0:
-			state = WORKING
+		if state == BUILDING:
+			if require_item.sub(current_item).get_item_count() == 0:
+				state = WORKING
+		if state == REMOVE:
+			if current_item.is_zero():
+				_dead()
+		
 
 var _building_manager: BuildingManager
 
@@ -69,11 +81,9 @@ func _is_block_available():
 	return _game_manager._tilemap_manager.is_block_available(position)\
 		and _game_manager._building_manager.is_block_available(position)
 
-
+## OVERWRITE
 func _icon():
 	pass
-
-
 
 func _work(delta: float):
 	pass
@@ -83,20 +93,29 @@ func _work(delta: float):
 
 
 
+var _progress_bar: Node
+func _ready() -> void:
+	_progress_bar = preload("uid://i1oud1p3vd4g").instantiate()
+	add_child(_progress_bar)
+
+
+
 ## DMAGE HANDLEING
-signal dead
+#signal dead ## 通知 
 
 @export var _hp: float = 30.0
 
 func dmage(dmg: float):
-	#print(self, " take ", dmg, " dmg")
+	CoreManager.base_scene._particle_manager.create("BuildingDamage", global_position)
+
 	_hp -= dmg
 	if _hp < 0:
 		is_dead = true
-		dead.emit(self)
+		#dead.emit(self)
 		_dead()
 		
 
 var is_dead:bool = false
 func _dead():
-	queue_free()
+	CoreManager.base_scene._building_manager\
+		.building_dead(self)

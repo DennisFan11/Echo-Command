@@ -2,8 +2,8 @@ class_name ItemCollector
 extends Node2D
 
 const R: float = 30 # 吸引半徑
-const COL_R: float = 10  # 收集半徑
-const FORCE_SCALE = 0.3
+const COL_R: float = 3  # 收集半徑
+const FORCE_SCALE = 0.6
 
 func _ready() -> void:
 	%CollisionShape2D.shape.radius = R

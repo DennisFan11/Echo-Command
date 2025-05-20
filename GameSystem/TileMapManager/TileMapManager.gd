@@ -74,14 +74,13 @@ func _spawn_item(coords: Vector2):
 
 
 
+
+
+var _particle_manager: ParticleManager
 func _explo_partical(coords: Vector2):
 	var pos = %WallLayer.map_to_local(coords)
-	var node = preload("uid://bj0i6iuo2ea3l")\
-		.instantiate()
-	node.emitting = true
-	node.finished.connect(node.queue_free)
-	node.position = pos
-	%Particle.add_child(node)
+	_particle_manager.create("TileBreak", pos)
+	
 
 
 

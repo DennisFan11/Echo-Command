@@ -3,23 +3,25 @@ extends IGameSubManager
 
 
 
-const TILE_SIZE:= Vector2i(16, 16)
+const TILE_SIZE:= Vector2(16, 16)
 func snap2grid(global_pos: Vector2)-> Vector2:
 	return Vector2(
 		floor(global_pos.x / TILE_SIZE.x) * TILE_SIZE.x,
 		floor(global_pos.y / TILE_SIZE.y) * TILE_SIZE.y,
 	) + TILE_SIZE/2.0
 
-
+func _to_key(global_pos: Vector2)-> Vector2i:
+	return (snap2grid(global_pos)/TILE_SIZE).floor()
 
 
 func _init_building() -> void:
 	for i: Building in %PlayerBuildingLayer.get_children():
 		add_building(i)
+		i.state = Building.WORKING
 	for i: Building in %EnemyBuildingLayer.get_children():
 		add_building(i)
 		i.team = 1
-
+		i.state = Building.WORKING
 
 var _tilemap_manager: TileMapManager
 func _game_start():
@@ -52,7 +54,7 @@ func delete_icon_building()-> void:
 
 ## BUILDING
 func building_dead(_building: Building):
-	var coords: Vector2i = snap2grid(_building.position)
+	var coords: Vector2i = _to_key(_building.position)
 	_building_map.erase(coords)
 	_building.queue_free()
 	
@@ -61,15 +63,65 @@ func building_dead(_building: Building):
 ## BUILDING PLACER
 var _building_map: Dictionary = {}
 func add_building(_building: Building)-> void:
-	var coords: Vector2i = snap2grid(_building.position)
+	var coords: Vector2i = _to_key(_building.position)
 	if _building_map.has(coords) and \
 			is_instance_valid(_building_map[coords]):
 		_building_map[coords].queue_free()
 	_building_map[coords] = _building
-	_building.dead.connect(building_dead)
+	print(_building, coords)
+	
 	
 
 func is_block_available(global_pos: Vector2)-> bool:
-	var coords: Vector2i = snap2grid(global_pos)
+	var coords: Vector2i = _to_key(global_pos)
 	return not (_building_map.has(coords) and \
 		is_instance_valid(_building_map[coords]))
+
+
+
+
+## BUILDING REMOVER
+func remove_buildings(p1: Vector2, p2: Vector2):
+	p1 = p1.floor()
+	p2 = p2.floor()
+	
+	var from = Vector2(min(p1.x, p2.x), min(p1.y, p2.y))
+	var to = Vector2(max(p1.x, p2.x), max(p1.y, p2.y))
+
+	print("remove buildings from:", from, " to:", to)
+
+	for x in range(from.x, to.x + 1, 16):
+		for y in range(from.y, to.y + 1, 16):
+			_remove_building(Vector2(x, y))
+
+
+func _remove_building(coords: Vector2):
+	var key: Vector2i = _to_key(coords)
+	print("coords: ", key, _building_map.has(key))
+	if not _building_map.has(key):
+		return
+	
+	var build:Building = _building_map[key]
+	#print(build, key)
+	
+	if not build:
+		return
+	
+	if build is Mother:
+		return
+	
+	if build.team == 1:
+		return
+	
+	build.state = Building.REMOVE
+	
+	
+
+
+
+
+
+
+
+
+#

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://8aebsb4grarx" path="res://GameSystem/_shared/ItemCollector/item_collector.gd" id="1_oygji"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8t2no"]
-radius = 30.0167
+radius = 23.0
 
 [node name="ItemCollector" type="Node2D"]
 script = ExtResource("1_oygji")

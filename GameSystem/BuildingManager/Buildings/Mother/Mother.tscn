@@ -17,3 +17,4 @@ metadata/_custom_type_script = "uid://dtdnnc0vu4u25"
 texture = SubResource("AtlasTexture_kkem6")
 R = 21.45
 text = "Mother . . . . ."
+mask = 24
