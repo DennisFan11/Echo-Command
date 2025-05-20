@@ -13,8 +13,8 @@ func PingHandle(pos:Vector2):
 func _process(delta: float) -> void:
 	var pos = get_global_mouse_position()
 	bfs(delta)
-	%PosLabel.position = pos
-	%PosLabel.text = "pos: " + str(samp_vec(pos))
+	#%PosLabel.position = pos
+	#%PosLabel.text = "pos: " + str(samp_vec(pos))
 
 func _samp(global_pos: Vector2):
 	return _get_dist(local_to_map(global_pos))
@@ -29,6 +29,37 @@ func samp_vec(global_pos: Vector2)-> Vector2:
 			min_dist = dist
 			last_vec = i
 	return last_vec - Vector2(pos)
+
+func _get_vec(coords: Vector2)-> Vector2:
+	var min_dist: float = 9999.0 
+	var last_vec = Vector2.ZERO
+	for i: Vector2 in _get_way(coords):
+		var dist = _get_dist(i)
+		if dist < min_dist:
+			min_dist = dist
+			last_vec = i
+	return last_vec - Vector2(coords)
+
+func get_vec(global_pos: Vector2) -> Vector2:
+	var pos = local_to_map(global_pos)
+	#var local_pos = global_pos / cell_size # 根據 tile 大小縮放回 local space
+	
+	var x = int(floor(pos.x))
+	var y = int(floor(pos.y))
+	
+	var fx = pos.x - x
+	var fy = pos.y - y
+
+	# 取得四個相鄰格子的中心向量（假設已經存在某種方向向量場可查詢）
+	var v00 = _get_vec(Vector2(x, y))
+	var v10 = _get_vec(Vector2(x + 1, y))
+	var v01 = _get_vec(Vector2(x, y + 1))
+	var v11 = _get_vec(Vector2(x + 1, y + 1))
+
+	# 雙線性插值
+	var vx0 = lerp(v00, v10, fx)
+	var vx1 = lerp(v01, v11, fx)
+	return lerp(vx0, vx1, fy)
 
 
 var source: Vector2

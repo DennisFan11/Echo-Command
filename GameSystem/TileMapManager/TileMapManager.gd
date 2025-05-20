@@ -97,5 +97,5 @@ func set_source(global_pos: Vector2):
 	%WallLayer.set_source(global_pos)
 
 func samp_vec(global_pos: Vector2)-> Vector2:
-	return %WallLayer.samp_vec(global_pos)
+	return %WallLayer.get_vec(global_pos)
 #
