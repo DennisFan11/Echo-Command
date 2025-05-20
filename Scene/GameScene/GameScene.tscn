@@ -226,7 +226,7 @@ tile_map_data = PackedByteArray("AAD///r/AAAEAAAAAAAAAPr/AAAEAAAAAAABAPr/AAAEAAA
 tile_map_data = PackedByteArray("AAD8/wIAAAAAAAAAAgA=")
 
 [node name="EnemyBuildingLayer" parent="BaseScene/BuildingManager" index="1"]
-tile_map_data = PackedByteArray("AAAPAPP/AAAAAAAAAwAQAPP/AAAAAAAAAwAPAPL/AAAAAAAAAwALAOT/AAAAAAAAAwAOAOP/AAAAAAAAAwAPAOX/AAAAAAAAAwALAOb/AAAAAAAAAwD//+D/AAAAAAAAAwAAAN3/AAAAAAAAAwDa/9z/AAAAAAAAAwDc/97/AAAAAAAAAwDa/93/AAAAAAAAAwDU/8z/AAAAAAAAAwDU/8v/AAAAAAAAAwDV/8r/AAAAAAAAAwDV/8v/AAAAAAAAAwDi/8L/AAAAAAAAAwDj/8L/AAAAAAAAAwDh/8P/AAAAAAAAAwDr/8D/AAAAAAAAAwDs/8D/AAAAAAAAAwD4/8T/AAAAAAAAAwD5/8X/AAAAAAAAAwD+/9T/AAAAAAAAAwD9/9T/AAAAAAAAAwD+/9P/AAAAAAAAAwDm/87/AAAAAAAAAwDd/9P/AAAAAAAAAwDw/8n/AAAAAAAAAwA=")
+tile_map_data = PackedByteArray("AAAPAPP/AAAAAAAAAwAQAPP/AAAAAAAAAwAPAPL/AAAAAAAAAwALAOT/AAAAAAAAAwAOAOP/AAAAAAAAAwAPAOX/AAAAAAAAAwALAOb/AAAAAAAAAwD//+D/AAAAAAAAAwAAAN3/AAAAAAAAAwDa/9z/AAAAAAAAAwDc/97/AAAAAAAAAwDa/93/AAAAAAAAAwDU/8z/AAAAAAAAAwDU/8v/AAAAAAAAAwDV/8r/AAAAAAAAAwDV/8v/AAAAAAAAAwDi/8L/AAAAAAAAAwDj/8L/AAAAAAAAAwDh/8P/AAAAAAAAAwDr/8D/AAAAAAAAAwDs/8D/AAAAAAAAAwD4/8T/AAAAAAAAAwD5/8X/AAAAAAAAAwD+/9T/AAAAAAAAAwD9/9T/AAAAAAAAAwD+/9P/AAAAAAAAAwDm/87/AAAAAAAAAwDd/9P/AAAAAAAAAwDw/8n/AAAAAAAAAwAPAP3/AAAAAAAAAwAOAPX/AAAAAAAAAwD//9//AAAAAAAAAwA=")
 tile_set = ExtResource("3_clveo")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -250,6 +250,7 @@ mouse_filter = 2
 
 [node name="shader" type="ColorRect" parent="CanvasLayer"]
 unique_name_in_owner = true
+visible = false
 material = SubResource("ShaderMaterial_avgph")
 anchors_preset = 15
 anchor_right = 1.0
@@ -276,22 +277,22 @@ dist = 35.6
 [node name="Attack_Hinter" parent="." instance=ExtResource("5_0ikwu")]
 position = Vector2(158, -23)
 text = "Use the drill to attack enemies."
-dist = 26.86
+dist = 42.3
 
 [node name="spawnerHinter" parent="." instance=ExtResource("5_0ikwu")]
 position = Vector2(246, -23)
 text = "Enemy spawner. Destroy it with a drill."
 dist = 42.76
 
-[node name="FinalHinter" parent="." instance=ExtResource("5_0ikwu")]
-position = Vector2(24, -520)
-text = "Destroy all enemy spawners to win."
-dist = 63.8
-
-[node name="Hinter" parent="." instance=ExtResource("5_0ikwu")]
+[node name="BuildingHinter" parent="." instance=ExtResource("5_0ikwu")]
 position = Vector2(249, -295)
 text = "Hold right-click can destory building"
 dist = 61.78
+
+[node name="FinalHinter" parent="." instance=ExtResource("5_0ikwu")]
+position = Vector2(80, -456)
+text = "Destroy all enemy spawners to win."
+dist = 110.67
 
 [connection signal="pressed" from="CanvasLayer/SettingButton" to="." method="_on_button_pressed"]
 
