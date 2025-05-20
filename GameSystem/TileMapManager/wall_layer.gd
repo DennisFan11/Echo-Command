@@ -37,17 +37,18 @@ func set_source(global_pos: Vector2):
 
 
 var _map = {} # Vector2:float
-var _prev_arr = []
-var _curr_arr = []
+var _walked = {}
+var _curr = []
 func bfs(delta: float) -> void:
 	if not source:
 		return
-	if _curr_arr.size() == 0:
-		_curr_arr.append(source)
+	if _curr.size() == 0:
+		_curr.append(source)
+		_walked = {}
 	_set_dist(source, 1.0)
 	
 	var next = []
-	for i: Vector2 in _curr_arr:
+	for i: Vector2 in _curr:
 		
 		var min_dist: float = 99999.0
 		for j: Vector2 in _get_way(i):
@@ -55,20 +56,19 @@ func bfs(delta: float) -> void:
 			var dist = _get_dist(j)
 			if dist != 0: 
 				min_dist = min(dist, min_dist)
-			if j not in _prev_arr \
-				and j not in _curr_arr\
-				and j not in next\
+			if j not in _walked\
 				and not _is_tile_used(i):
 				next.append(j)
+				_walked[j] = true
 		if min_dist != 99999.0:
 			var cost = 10 if _is_tile_used(i) else 1
 			_set_dist(i, min_dist + cost)
 			#print(i, min_dist + cost)
-	_prev_arr = _curr_arr
-	_curr_arr = next
 	#print(_curr_arr)
-	if _curr_arr.size() > 500:
-		_curr_arr = []
+	_curr = next
+	if _curr.size() > 500:
+		_curr = []
+		_walked = {}
 		
 func _is_tile_used(coord: Vector2):
 	return get_cell_atlas_coords(coord) != Vector2i(-1, -1)
