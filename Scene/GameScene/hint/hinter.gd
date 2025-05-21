@@ -9,7 +9,8 @@ extends Node2D
 var text:String = "":
 	set(new):
 		text = new
-		%RichTextLabel.text = new
+		if %RichTextLabel:
+			%RichTextLabel.text = new
 
 @export
 var dist:float:
@@ -20,12 +21,13 @@ var dist:float:
 			for i in range(20):
 				var angle= PI*2.0/20.0*i
 				arr.append(Vector2.from_angle(angle)*dist)
-			%Line2D.points = arr
+			if %Line2D:
+				%Line2D.points = arr
 
 func _ready() -> void:
 	if not Engine.is_editor_hint():
-		%RichTextLabel.text = ""
-		%Line2D.visible = false
+		if %RichTextLabel: %RichTextLabel.text = ""
+		if %Line2D: %Line2D.visible = false
 	#else:
 		#dist = dist
 		#text = text

@@ -9,7 +9,3 @@ func _ready() -> void:
 func _on_button_pressed() -> void:
 	await CoreManager.goto_scene("GameScene")
 	#CoreManager.enter_game()
-
-
-func _on_setting_pressed() -> void:
-	%Setting.open()

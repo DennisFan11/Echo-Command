@@ -4,9 +4,20 @@ extends Node2D
 var dir: Vector2
 var dmg: float = 10.0
 
+
+var light: Light
+func _ready() -> void:
+	light = \
+	CoreManager.base_scene._fog_manager.create_light()
+	
+func _exit_tree() -> void:
+	if light:
+		light.queue_free()
+
 func _process(delta: float) -> void:
-	global_position +=\
-		dir * delta
+	look_at(dir)
+	global_position += dir * delta
+	light.global_position = position
 	if _try_hit():
 		queue_free()
 		

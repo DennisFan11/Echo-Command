@@ -69,14 +69,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 80
 text = "Start Game"
 
-[node name="Setting" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 80
-text = "Setting"
-
 [node name="Setting" parent="CanvasLayer" instance=ExtResource("2_mw8f1")]
 unique_name_in_owner = true
-visible = false
 
 [connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/StartButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/Setting" to="." method="_on_setting_pressed"]

@@ -3,7 +3,7 @@ extends Camera2D
 var _player_manager: PlayerManager
 
 func _ready() -> void:
-	pass
+	%AudioListener2D.make_current()
 
 const SPEED:float = 5 # lerp time
 func _process(delta: float) -> void:
