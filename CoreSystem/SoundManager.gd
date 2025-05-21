@@ -42,6 +42,7 @@ func play_sound(tag: String, position: Vector2):
 	sound.volume_linear = sound_list[tag][1]
 	sound.stream = sound_list[tag][0]
 	sound.position = position
+	sound.bus = _bus_map[BUS.EFFECT]
 	add_child(sound)
 	sound.play()
 	
