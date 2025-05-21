@@ -9,13 +9,13 @@ var light: Light
 func _ready() -> void:
 	light = \
 	CoreManager.base_scene._fog_manager.create_light()
-	
+	light.scale *= 0.2
 func _exit_tree() -> void:
 	if light:
 		light.queue_free()
 
 func _process(delta: float) -> void:
-	look_at(dir)
+	rotation = dir.angle()
 	global_position += dir * delta
 	light.global_position = position
 	if _try_hit():
