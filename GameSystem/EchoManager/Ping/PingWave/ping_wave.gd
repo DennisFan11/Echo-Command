@@ -58,6 +58,9 @@ var _has_response := false
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	#print(body)
 	if body.has_method("PingHandle"):
+		if body.has_method("GetBuilding"):
+			if body.GetBuilding() is Mother:
+				return 
 		body.PingHandle(to_global(%Area2D.position))
 		_has_response = true
 		queue_free()

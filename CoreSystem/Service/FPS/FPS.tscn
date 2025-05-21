@@ -6,8 +6,7 @@
 script = ExtResource("1_00uf1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 20
-visible = false
+layer = 18
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
 unique_name_in_owner = true

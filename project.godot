@@ -23,6 +23,7 @@ MapDataRepo="*res://CoreSystem/MapDataRepo.gd"
 Logger="*res://CoreSystem/Service/Logger.gd"
 Fps="*res://CoreSystem/Service/FPS/FPS.tscn"
 SoundManager="*res://CoreSystem/SoundManager.gd"
+Ctr="*res://CoreSystem/Service/CTR/CTR.tscn"
 
 [display]
 

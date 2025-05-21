@@ -38,20 +38,20 @@ func _ready() -> void:
 func _ctr_init():
 	const SECTION = "CTR_shader"
 	var e = ConfigRepo.repo.get_value(SECTION, "enable", true)
-	%shader.visible = e
+	Ctr.enable = e
 	%CTRCheckBox.button_pressed = e
 	%CTRCheckBox.toggled.connect(
 		func(new:bool):
 			ConfigRepo.repo.set_value(SECTION, "enable", new)
 			ConfigRepo.save()
-			%shader.visible = new
+			Ctr.enable = new
 	)
 	
 
 
 
 func _on_menu_button_button_down() -> void:
-	CoreManager.goto_scene("Menu")
+	CoreManager.goto_scene("Title")
 
 
 func _on_setting_button_pressed() -> void:

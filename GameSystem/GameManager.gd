@@ -63,16 +63,13 @@ func _start_game():
 	#print(node)
 
 
-
-func game_over(win:bool, message: String):
-	if not _end:
-		
-		print_rich(message)
-		CoreManager.goto_end(win, message)
-		_end = true
-func _process(delta: float) -> void:
-	if not _end:
-		if EnemySpawner.count <=0:
-			_end = true
-			CoreManager.goto_end(true, "[color=yellow]U win !")
 var _end = false
+func game_over(message: String, tags: String, win=false):
+	if not _end:
+		_end = true
+		await %EndMessage.set_message(message, tags)
+		CoreManager.goto_scene("LevelSelect")
+
+func _process(delta: float) -> void:
+	if EnemySpawner.count <=0:
+		game_over("U win !", "[color=yellow]", true)

@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bk47mlxc22xd1"]
-
-[ext_resource type="PackedScene" uid="uid://ck880glpw7yhe" path="res://GameSystem/BaseScene.tscn" id="1_f12eb"]
-
-[node name="Level1" type="Node2D"]
-
-[node name="BaseScene" parent="." instance=ExtResource("1_f12eb")]

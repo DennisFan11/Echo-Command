@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ck880glpw7yhe"]
+[gd_scene load_steps=14 format=3 uid="uid://ck880glpw7yhe"]
 
 [ext_resource type="PackedScene" uid="uid://dj15tnwdfnu8c" path="res://GameSystem/TileMapManager/TileMapManager.tscn" id="1_enerm"]
 [ext_resource type="Script" uid="uid://ceagxmln0cgie" path="res://GameSystem/GameManager.gd" id="1_jcyoa"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://hji2xvqpq70r" path="res://GameSystem/ItemManager/ItemManager.tscn" id="7_g4dfj"]
 [ext_resource type="PackedScene" uid="uid://cb52ktvlwhm50" path="res://GameSystem/BuildingManager/BuildingManager.tscn" id="9_cmv0i"]
 [ext_resource type="PackedScene" uid="uid://qcvvobq02w7m" path="res://GameSystem/ParticleManager/ParticleManager.tscn" id="11_khy4d"]
+[ext_resource type="PackedScene" uid="uid://cudua585eb442" path="res://Scene/_shared/Setting/Setting.tscn" id="12_rbref"]
+[ext_resource type="Script" uid="uid://cn5y12sl1b13l" path="res://GameSystem/end_message.gd" id="12_ycyuo"]
 
 [node name="BaseScene" type="Node2D"]
 script = ExtResource("1_jcyoa")
@@ -18,10 +20,10 @@ script = ExtResource("1_jcyoa")
 [node name="TileMapManager" parent="." instance=ExtResource("1_enerm")]
 unique_name_in_owner = true
 
-[node name="EnemyManager" parent="." instance=ExtResource("3_8t1sf")]
+[node name="BuildingManager" parent="." instance=ExtResource("9_cmv0i")]
 unique_name_in_owner = true
 
-[node name="BuildingManager" parent="." instance=ExtResource("9_cmv0i")]
+[node name="EnemyManager" parent="." instance=ExtResource("3_8t1sf")]
 unique_name_in_owner = true
 
 [node name="PlayerManager" parent="." instance=ExtResource("4_ksd4f")]
@@ -42,5 +44,23 @@ unique_name_in_owner = true
 [node name="BuildingUi" parent="." instance=ExtResource("7_cmv0i")]
 
 [node name="Camera" parent="." instance=ExtResource("3_6fmk2")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="EndMessage" type="RichTextLabel" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -645.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("12_ycyuo")
+
+[node name="Setting" parent="CanvasLayer" instance=ExtResource("12_rbref")]
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]

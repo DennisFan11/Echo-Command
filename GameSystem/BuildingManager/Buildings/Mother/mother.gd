@@ -12,4 +12,4 @@ func _ready() -> void:
 
 
 func _dead():
-	CoreManager.base_scene.game_over(false, "[color=red]Mother is dead")
+	CoreManager.base_scene.game_over("Mother is dead", "[color=red]")

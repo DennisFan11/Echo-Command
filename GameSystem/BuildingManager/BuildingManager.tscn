@@ -13,6 +13,7 @@ tile_set = ExtResource("2_3j6id")
 
 [node name="EnemyBuildingLayer" type="TileMapLayer" parent="."]
 unique_name_in_owner = true
+tile_set = ExtResource("2_3j6id")
 
 [node name="BuildingRemover" parent="." instance=ExtResource("3_ohxo2")]
 top_level = true

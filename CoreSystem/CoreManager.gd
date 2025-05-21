@@ -2,20 +2,27 @@ extends Node
 # CORE MANAGER 可以在此取得 GameSystem
 
 var SCENE := {
-	"GameScene":{
+	"Level0":{
 		"file":preload("uid://coiq2crfbkgwe")
 	},
-	"Menu":{
+	"Level1":{
+		"file":preload("uid://bk47mlxc22xd1")
+	},
+	"Title":{
 		"file":preload("uid://bg4ji6py6jgn8")
 	},
-	"Setting":{
-		"file":preload("uid://cudua585eb442")
+	"LevelSelect":{
+		"file":preload("uid://fbg7a35l7a4s")
 	},
+	#"Setting":{
+		#"file":preload("uid://cudua585eb442")
+	#},
 	"Endding":{
 		"file":preload("uid://cv2bm6xikqx7q")
 	}
 }
-
+func get_level_arr():
+	return ["Level0", "Level1"]
 var TRANSITION := {
 	"Triangle":preload("uid://cql8o1y2hvpls")
 }
@@ -72,11 +79,11 @@ func _call_transition(trans: String, type: bool)-> Signal:
 		return node.out_end
 
 ## GAME MANAGER
-func goto_end(win:bool, message:String):
-	
-	await goto_scene("Endding")
-	if get_tree().current_scene.has_method("goto_end"):
-		get_tree().current_scene.goto_end(win, message)
+#func goto_end(win:bool, message:String):
+	#
+	#await goto_scene("Endding")
+	#if get_tree().current_scene.has_method("goto_end"):
+		#get_tree().current_scene.goto_end(win, message)
 
 
 
