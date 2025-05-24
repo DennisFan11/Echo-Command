@@ -1,6 +1,8 @@
 class_name TileMapManager 
 extends IGameSubManager
 
+func _ready() -> void:
+	DI.register("_tilemap_manager", self)
 
 func is_block_available(global_position: Vector2)-> bool:
 	var map_pos: Vector2 = %WallLayer.local_to_map(

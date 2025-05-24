@@ -48,21 +48,6 @@ func goto_scene(scene: String, trans: String="Triangle"):
 
 
 
-var base_scene:GameManager
-
-## 加載依賴
-func enter_game():
-	if is_instance_valid(base_scene): base_scene.queue_free()
-	base_scene = preload("uid://ck880glpw7yhe").instantiate()
-	add_child(base_scene)
-
-func save_game():
-	if is_instance_valid(base_scene): base_scene._save()
-func load_game():
-	if is_instance_valid(base_scene): base_scene._load()
-
-
-
 ## PRIVATE
 var _transition_cache = {}
 func _call_transition(trans: String, type: bool)-> Signal:

@@ -4,8 +4,7 @@ extends Node2D
 
 
 
-@onready var _item_manager:= \
-	CoreManager.base_scene._item_manager
+var _item_manager: ItemManager
 
 
 const SPEED = 1

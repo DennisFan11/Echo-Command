@@ -5,9 +5,7 @@ extends FSM_Mouse
 var first_pos: Vector2 = Vector2.ZERO
 var second_pos: Vector2 = Vector2.ZERO
 
-var _building_manager: BuildingManager:
-	get:
-		return CoreManager.base_scene._building_manager
+var _building_manager: BuildingManager
 
 func _R_click(): # exec-once
 	first_pos = _building_manager\
@@ -27,8 +25,7 @@ func _R_clicking():
 func _R_finish(): #exec-once
 	%Polygon2D.visible = false
 	%Line2D.visible = false
-	CoreManager.base_scene._building_manager\
-		.remove_buildings(first_pos, second_pos)
+	_building_manager.remove_buildings(first_pos, second_pos)
 
 
 

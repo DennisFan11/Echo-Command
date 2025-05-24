@@ -5,6 +5,7 @@ static var count = 0
 
 const MAX_SIZE = 5
 var _child_list = []
+var _enemy_manager: EnemyManager
 func _on_timer_timeout() -> void:
 	#print("enemy spawn", position)
 	var _temp = []
@@ -16,9 +17,7 @@ func _on_timer_timeout() -> void:
 	if _child_list.size() > MAX_SIZE:
 		return
 	_child_list.append(
-		CoreManager.base_scene\
-			._enemy_manager\
-			.create(position)
+		_enemy_manager.create(position)
 	)
 
 func _ready() -> void:

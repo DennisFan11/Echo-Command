@@ -4,11 +4,10 @@ extends Node2D
 var dir: Vector2
 var dmg: float = 10.0
 
-
+var _fog_manager: FogManager
 var light: Light
 func _ready() -> void:
-	light = \
-	CoreManager.base_scene._fog_manager.create_light()
+	light = _fog_manager.create_light()
 	light.scale *= 0.2
 func _exit_tree() -> void:
 	if light:

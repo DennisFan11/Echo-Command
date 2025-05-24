@@ -7,6 +7,7 @@ const EDGE = 100000.0
 
 
 func _ready() -> void:
+	DI.register("_fog_manager", self)
 	
 	%Polygon2D.polygon = [
 		Vector2(-EDGE, -EDGE),

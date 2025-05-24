@@ -1,7 +1,8 @@
 class_name EchoManager
 extends IGameSubManager
 
-
+func _ready() -> void:
+	DI.register("_echo_manager", self)
 
 
 func create_echo(position: Vector2, message: String, tags: String):

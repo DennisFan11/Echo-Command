@@ -4,12 +4,12 @@ extends CharacterBody2D
 signal dead
 
 @export var _hp: float = 30.0
-
+var _particle_manager: ParticleManager
 func dmage(dmg: float):
-	print(self, " take ", dmg, " dmg")
+	#print(self, " take ", dmg, " dmg")
 	_hp -= dmg
 	
-	CoreManager.base_scene._particle_manager\
+	_particle_manager\
 		.create("Blood", global_position)
 	if _hp < 0:
 		_dead()

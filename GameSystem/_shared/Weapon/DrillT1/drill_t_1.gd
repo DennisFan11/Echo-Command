@@ -80,8 +80,9 @@ func _stop_shoot():
 	%GPUParticles2D.emitting = false
 	%Damager.enable = false
 
+var _tilemap_manager: TileMapManager
 func _damage(global_pos, damage):
-	CoreManager.base_scene._tilemap_manager.dmage_wall(
+	_tilemap_manager.dmage_wall(
 		global_pos + (global_pos-global_position).normalized()*2.0, 
 		damage
 	)

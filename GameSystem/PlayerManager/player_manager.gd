@@ -1,7 +1,9 @@
 class_name PlayerManager
 extends IGameSubManager
 
-var _game_manager: GameManager
+func _ready() -> void:
+	DI.register("_player_manager", self)
+
 func _load():
 	pass
 func _save():

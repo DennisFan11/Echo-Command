@@ -65,10 +65,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		_has_response = true
 		queue_free()
 
-
+var _echo_manager: EchoManager
 func _exit_tree() -> void:
 	if not _has_response:
-		CoreManager.base_scene._echo_manager\
+		_echo_manager\
 			.create_echo(_global_pos, "No Response", "[color=gray]")
 
 #endregion

@@ -7,10 +7,10 @@ func _work(delta: float):
 	%Sprite2D.rotation += delta
 	%Line2D.visible = false
 
-
+var _echo_manager: EchoManager
 func _on_timer_timeout() -> void:
 	if state == WORKING:
-		CoreManager.base_scene._echo_manager.create_ping(
+		_echo_manager.create_ping(
 			0, global_position, _attack_range, 30, 19+1048576
 		)
 

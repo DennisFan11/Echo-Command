@@ -11,5 +11,6 @@ func _ready() -> void:
 	super()
 
 
+var _game_manager: GameManager
 func _dead():
-	CoreManager.base_scene.game_over("Mother is dead", "[color=red]")
+	_game_manager.game_over("Mother is dead", "[color=red]")

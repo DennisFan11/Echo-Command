@@ -1,6 +1,7 @@
 class_name ItemManager
 extends IGameSubManager
-
+func _ready() -> void:
+	DI.register("_item_manager", self)
 
 
 
@@ -39,7 +40,7 @@ func get_curr_repo()-> String:
 var snap_repo: PackedItem = PackedItem.new()
 
 func _on_timer_timeout() -> void:
-	print("repo:", _repo, "snap", snap_repo)
+	#print("repo:", _repo, "snap", snap_repo)
 	snap_repo = PackedItem.new(_repo.to_array())
 
 

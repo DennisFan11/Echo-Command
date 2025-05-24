@@ -3,6 +3,11 @@ extends Node2D
 
 var team: int = 0
 
+
+var _tilemap_manager: TileMapManager
+var _building_manager: BuildingManager
+var _particle_manager: ParticleManager
+
 enum {NOT_AVAILABLE, AVAILABLE, FINISHED}
 var _color_map = {
 	NOT_AVAILABLE: Color(1.0, 0.0, 0.0, 0.5),
@@ -61,7 +66,7 @@ var current_item: PackedItem = PackedItem.new():
 				_dead()
 		
 
-var _building_manager: BuildingManager
+
 
 func _process(delta: float) -> void:
 	sound_cd -= delta
@@ -78,9 +83,8 @@ func _process(delta: float) -> void:
 
 
 func _is_block_available():
-	var _game_manager = CoreManager.base_scene
-	return _game_manager._tilemap_manager.is_block_available(position)\
-		and _game_manager._building_manager.is_block_available(position)
+	return _tilemap_manager.is_block_available(position)\
+		and _building_manager.is_block_available(position)
 
 ## OVERWRITE
 func _icon():
@@ -107,7 +111,7 @@ func _ready() -> void:
 @export var _hp: float = 30.0
 
 func dmage(dmg: float):
-	CoreManager.base_scene._particle_manager.create("BuildingDamage", global_position)
+	_particle_manager.create("BuildingDamage", global_position)
 
 	_hp -= dmg
 	if _hp < 0:
@@ -122,8 +126,6 @@ func dmage(dmg: float):
 
 var sound_cd:float = 0
 
-
 var is_dead:bool = false
 func _dead():
-	CoreManager.base_scene._building_manager\
-		.building_dead(self)
+	_building_manager.building_dead(self)

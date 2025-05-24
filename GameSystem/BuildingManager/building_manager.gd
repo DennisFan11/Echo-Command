@@ -1,6 +1,11 @@
 class_name BuildingManager
 extends IGameSubManager
 
+func _ready() -> void:
+	DI.register("_building_manager", self)
+
+
+
 
 
 const TILE_SIZE:= Vector2(16, 16)
@@ -68,7 +73,7 @@ func add_building(_building: Building)-> void:
 			is_instance_valid(_building_map[coords]):
 		_building_map[coords].queue_free()
 	_building_map[coords] = _building
-	print(_building, coords)
+	#print(_building, coords)
 	
 	
 
@@ -88,7 +93,7 @@ func remove_buildings(p1: Vector2, p2: Vector2):
 	var from = Vector2(min(p1.x, p2.x), min(p1.y, p2.y))
 	var to = Vector2(max(p1.x, p2.x), max(p1.y, p2.y))
 
-	print("remove buildings from:", from, " to:", to)
+	#print("remove buildings from:", from, " to:", to)
 
 	for x in range(from.x, to.x + 1, 16):
 		for y in range(from.y, to.y + 1, 16):
@@ -97,7 +102,7 @@ func remove_buildings(p1: Vector2, p2: Vector2):
 
 func _remove_building(coords: Vector2):
 	var key: Vector2i = _to_key(coords)
-	print("coords: ", key, _building_map.has(key))
+	#print("coords: ", key, _building_map.has(key))
 	if not _building_map.has(key):
 		return
 	

@@ -3,10 +3,10 @@ extends TileMapLayer
 
 var _echo_manager: EchoManager
 func PingHandle(pos:Vector2):
-	CoreManager.base_scene._echo_manager.\
-		create_echo(pos, "Wall", "[color=yellow]")
+	_echo_manager.create_echo(pos, "Wall", "[color=yellow]")
 
-
+#func _on_injected(): 
+	#print("Wall Layer: _on_injected", _echo_manager)
 
 
 ##  FIXME need to cleanup 

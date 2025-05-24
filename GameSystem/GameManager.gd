@@ -12,40 +12,14 @@ func _game_start():
 
 
 
-
-
-@onready var _tilemap_manager: TileMapManager = %TileMapManager
-@onready var _enemy_manager: EnemyManager = %EnemyManager
-@onready var _building_manager: BuildingManager = %BuildingManager
-@onready var _item_manager: ItemManager = %ItemManager
-@onready var _player_manager: PlayerManager = %PlayerManager
-@onready var _fog_manager: FogManager = %FogManager
-@onready var _particle_manager: ParticleManager = %ParticleManager
-@onready var _echo_manager: EchoManager = %EchoManager
-
 func _ready() -> void:
-	if CoreManager.base_scene != self:
-		CoreManager.base_scene = self
 	
-	for i:Node in get_children():
-		_injection(i, "_game_manager", self)
-		_injection(i, "_enemy_manager")
-		_injection(i, "_tilemap_manager")
-		_injection(i, "_building_manager")
-		_injection(i, "_item_manager")
-		_injection(i, "_player_manager")
-		_injection(i, "_fog_manager")
-		_injection(i, "_particle_manager")
-		_injection(i, "_echo_manager")
+	DI.register("_game_manager", self)
+	
+	## 遞歸重新注入
+	DI.injection(self, true)
+	
 	_start_game()
-
-func _injection(target: Node, property: String, item=null):
-	if property in target:
-		if item:
-			target.set(property, item)
-		else:
-			target.set(property, get(property))
-		
 
 
 
@@ -59,8 +33,6 @@ func _start_game():
 	Logger.printLog("[GAME MANAGER] start")
 
 
-#func _on_child_entered_tree(node: Node) -> void:
-	#print(node)
 
 
 var _end = false

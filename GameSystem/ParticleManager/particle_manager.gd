@@ -1,7 +1,8 @@
 class_name ParticleManager
 extends IGameSubManager
 
-
+func _ready() -> void:
+	DI.register("_particle_manager", self)
 
 var _scene_map = {
 	"Blood": preload("uid://mf63u76gof4f"),

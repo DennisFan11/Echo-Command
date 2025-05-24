@@ -31,10 +31,9 @@ func _physics_process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("space"):
 		_send_ping()
-
+var _echo_manager: EchoManager
 func _send_ping():
-	CoreManager.base_scene._echo_manager.\
-		create_ping(0, position, 125.0, 30, 27)
+	_echo_manager.create_ping(0, position, 125.0, 30, 27)
 
 
 

@@ -28,24 +28,22 @@ func _ready() -> void:
 	if not Engine.is_editor_hint():
 		if %RichTextLabel: %RichTextLabel.text = ""
 		if %Line2D: %Line2D.visible = false
-	#else:
-		#dist = dist
-		#text = text
 
+
+var _player_manager: PlayerManager
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 		
 	if showed:
 		return
-	if not CoreManager.base_scene:
+	
+	if not _player_manager:
 		return
-	if not CoreManager.base_scene._player_manager:
+	
+	if _player_manager.get_player_position() == Vector2.ZERO:
 		return
-	var pM = CoreManager.base_scene._player_manager
-	if pM.get_player_position() == Vector2.ZERO:
-		return
-	var _dist = (pM.get_player_position()-global_position).length()
+	var _dist = (_player_manager.get_player_position()-global_position).length()
 	if _dist < dist:
 		_show()
 	

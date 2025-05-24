@@ -15,9 +15,11 @@ var FireOn: bool = false
 
 const DAMAGE = 30.0
 
+
+var _fog_manager: FogManager
 func _ready() -> void:
 	%RayCast2D.target_position = Vector2(MAX_LENGTH, 0.0)
-	_line_light = CoreManager.base_scene._fog_manager.create_line_light()
+	_line_light = _fog_manager.create_line_light()
 
 
 var _line_light: LineLight
@@ -56,9 +58,9 @@ func _process(delta: float) -> void:
 			_charge_progess- CHARGE_SPEED*delta, 0, 1
 		)
 
-
+var _tilemap_manager: TileMapManager
 func _damage(global_pos, damage):
-	CoreManager.base_scene._tilemap_manager.dmage_wall(
+	_tilemap_manager.dmage_wall(
 		global_pos + (global_pos-global_position).normalized()*2.0, 
 		damage
 	)
